@@ -1,0 +1,13 @@
+
+.dataimg {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 100vh;           
+}
+.storie img {
+display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically if needed */
+  height: 100vh;    
+}

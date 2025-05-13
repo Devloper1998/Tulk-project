@@ -1,0 +1,21 @@
+
+.dataimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;     
+  height: 100vh;           
+}
+.missionhead h3{
+    font-family: 'MyFont', sans-serif;
+  font-size: 35px;
+}
+#missions{
+max-width: 100%;
+    height: auto;
+ margin-top: -101px;
+}
+#suportimg{
+  max-width: 100%;
+    height: auto;
+ margin-top: -101px;
+}

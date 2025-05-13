@@ -1,0 +1,184 @@
+/* src\Components\Businesses\Business.css */
+ .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      padding-left: 100px;
+      padding-right: 100px;
+      backdrop-filter: brightness(0.7);
+    }
+
+    .hero-buttons .btn {
+      margin-right: 15px;
+      font-weight: 600;
+    }
+
+    .btn-red {
+      background-color: #f4434b;
+      border: none;
+      color: white;
+    }
+
+    .btn-outline-white {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+    .aspect-4\/3 {
+    aspect-ratio: 4 / 3;
+}
+
+    @media (max-width: 768px) {
+      .hero-content {
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+      }
+    }
+
+      .featured-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #f5d580;
+      color: #000;
+      padding: 2px 10px;
+      font-weight: 600;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      z-index: 2;
+    }
+
+    .discount-tag {
+      color: #e60023;
+      font-weight: bold;
+      background: #ffe5ea;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+    
+    }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .favorite-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      border-radius: 50%;
+      padding: 6px;
+      z-index: 2;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+   .test h2{
+      font-family: 'MyFont', sans-serif;
+   }
+   .test2{
+    text-align: justify;
+   }
+
+
+
+    .swiper-pagination-bullet-active {
+      background-color: #f44336;
+    }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+  bottom: 20px;
+  top: auto;
+  transform: scale(0.3);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;        /* Optional: make it circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: gray;
+  padding: 10px 10px 10px 10px; 
+  font-weight: bold      /* Gray background on hover */
+}
+
+
+/* Pagination Dots */
+.swiper-pagination-bullets {
+  bottom: 5px !important;      /* Closer to the swiper */
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  width: 8px;                  /* Smaller size */
+  height: 8px;
+  background: gray;            /* Gray color */
+  opacity: 1;
+  margin: 0 4px;
+  /* border-radius: 50%; */
+}
+
+/* Optional: Active dot */
+.swiper-pagination-bullet-active {
+  background: black;           /* Different color when active */
+}
+.featured-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ffc107;
+  color: #000;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 0px;
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
+}
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.custom-pagination span {
+ background-color: #ddd;
+  border: none;
+  border-radius: 6%;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #007bff;
+  color: #fff;
+}

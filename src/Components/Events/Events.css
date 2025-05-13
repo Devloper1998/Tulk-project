@@ -1,0 +1,36 @@
+
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  gap: 10px; /* Space between the numbers */
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+/* Style each number */
+.dot-box {
+  width: 30px;
+  height: 30px;
+  /* border-radius: 50%; */
+  background: #ddd;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+/* Active dot styling */
+.slick-dots .slick-active .dot-box {
+  background: #007bff; 
+  color: #fff;
+}
+
+.head h1{
+   font-family: 'MyFont', sans-serif;
+       font-size: 30px;
+}

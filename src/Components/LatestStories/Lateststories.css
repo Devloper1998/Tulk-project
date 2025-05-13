@@ -1,0 +1,42 @@
+/* src\Components\LatestStories\Lateststories.css */
+    .story-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: #fff;
+      transition: transform 0.2s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .story-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .story-content {
+      padding: 10px 5px;
+    }
+
+    .story-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #111;
+      margin-bottom: 2px;
+    }
+
+    .story-meta {
+      font-size: 0.85rem;
+      color: #777;
+    }
+    .section-title{
+         font-family: 'MyFont', sans-serif !important;
+          font-size: 35px;
+    }
+    .latestst p{
+        font-family: 'merifont', sans-serif !important;
+        text-align: justify;
+        font-size: 15px
+    }

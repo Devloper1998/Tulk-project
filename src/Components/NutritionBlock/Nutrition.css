@@ -1,0 +1,42 @@
+/* src\Components\NutritionBlock\Nutrition.css */
+.membership-section {
+      padding: 60px 20px;
+    }
+    .benefit-item {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    .benefit-item i {
+      color: red;
+      margin-right: 10px;
+    }
+    .btn-membership {
+      background-color: #052c65;
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+    }
+    .btn-membership:hover {
+      background-color: #e82f3a;
+    }
+    .membership-section h2{
+          font-family: 'MyFont', sans-serif;
+       font-size: 40px;
+    }
+        .img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .img-grid img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      height: 139px;
+    }
+    .img-grid img:first-child {
+      grid-column: span 2;
+      height: 250px;
+    }

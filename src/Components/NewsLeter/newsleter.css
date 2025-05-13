@@ -1,0 +1,21 @@
+/* src\Components\NewsLeter\newsleter.css */
+#bglatter{
+    background-color: beige;
+}
+#bglatter h2{
+       font-family: 'MyFont', sans-serif;
+       font-size: 40px;
+}
+#bglatter p{
+       font-family: 'merifont', sans-serif;
+       font-size: 15px;
+      
+}
+.headings p{
+    margin-top: 80px;
+    text-align: justify;
+}
+.headings h2{
+     font-family: 'MyFont', sans-serif;
+       font-size: 25px;
+}

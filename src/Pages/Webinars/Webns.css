@@ -1,0 +1,8 @@
+/* src\Pages\Webinars\Webns.css */
+/* src\Pages\Aboutus\about.css */
+.dataimg {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically if needed */
+  height: 100vh;           /* Optional: make container full height for vertical centering */
+}

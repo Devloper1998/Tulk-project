@@ -1,0 +1,169 @@
+/* src\Components\Navbar\Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+   font-family: 'merifont', sans-serif !important;
+  font-optical-sizing: auto !important;
+}
+
+
+.active-link {
+  color: blue !important;
+  font-weight: bold;
+}
+
+.inactive-link {
+  color: black !important;
+  font-weight: normal;
+}
+
+
+
+.menu-links a {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.menu-links a:hover {
+  text-decoration: underline;
+}
+
+
+
+.menu-links {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.menu-links a, .login-btn {
+  color: #333; /* Adjust text color */
+  text-decoration: none; /* Remove underlines */
+}
+
+.login-btn {
+  background-color: #007bff; /* Your desired button color */
+  color: white;
+  border: none;
+}
+.logo {
+  height: 40px;  /* Adjust the size of the logo */
+  width: auto;   /* Maintain aspect ratio */
+}
+
+/* Optional: You can add other styles like margin or padding for better alignment */
+.navbar-brand {
+  margin-right: 10px;  /* Adjust spacing if needed */
+}
+
+.menu-links a:hover, .login-btn:hover {
+  color: #007bff; /* Add hover effect if needed */
+}
+
+#bgback{
+  background-color: #fff;
+  /* padding: 28px; */
+
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+.offcanvas-body {
+  overflow-x: scroll;
+}
+/* mobile canvas code css */
+.custom-offcanvas {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.custom-offcanvas .nav-link {
+  color: #fff;
+  padding: 10px 0;
+}
+
+.custom-offcanvas .nav-link:hover {
+  color: #f0c040;
+}
+/* dropdown */
+
+.bb_button {
+  position: relative;
+  display: inline-block;
+  padding: 5% 15px;
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.bb_button--transp {
+  background-color: transparent;
+}
+
+.bb_button__text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Snake Animation Border Effect */
+.bb_button--snake-3::before,
+.bb_button--snake-3::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bb_button--snake-3::before {
+  border-top-color: #007bff;
+  border-right-color: #007bff;
+  animation: borderSnake 2s linear infinite;
+}
+
+.bb_button--snake-3::after {
+  border-bottom-color: #007bff;
+  border-left-color: #007bff;
+  animation: borderSnake 2s linear infinite reverse;
+}
+
+@keyframes borderSnake {
+  0% {
+    transform: scaleX(0) scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleX(0) scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Hover Effect */
+.bb_button:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+ #dall{
+   border-bottom: 1px solid red !important;
+   padding: 10px 20px !important;
+}

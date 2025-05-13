@@ -1,0 +1,43 @@
+/* src\Components\AboutUs\About.css */
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../Assets/Fonts/Recoleta-SemiBold.ttf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'merifont';
+    src: url('../../Assets/Fonts/Poppins-Regular.ttf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+#aboutimg {
+    max-width: 100%;
+    height: auto;
+}
+#aboutimg1{
+     max-width: 100%;
+    height: auto;
+    margin-top: 80px;
+}
+.heading h3{
+  font-family: 'MyFont', sans-serif;
+  font-size: 40px;
+}
+.heading p{
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 30px;
+      font-family: 'merifont', sans-serif;
+
+}
+.heading h5{
+  font-family: 'MyFont', sans-serif;
+  font-size: 25px;
+}
+.heading3{
+   margin-top: 150px;
+}
+
+
+/* Media Queries */
