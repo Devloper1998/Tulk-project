@@ -1,5 +1,5 @@
 // src\Components\LatestStories\LatestStories.jsx
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Logo1 from '../../Assets/LatestStories/1.jpg'
 import Logo2 from '../../Assets/LatestStories/2.png'
 import Logo3 from '../../Assets/LatestStories/3.jpg'
@@ -7,8 +7,37 @@ import Logo4 from '../../Assets/LatestStories/4.jpg'
 // import Logo5 from '../../Assets/LatestStories/5.jpg'
 import { NavLink } from 'react-router-dom'
 import './Lateststories.css'
+import axios from  'axios'
+import  baseurl from '../../baseUrl'
 
 function LatestStories() {
+  const  [stories,setStories] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  
+useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveStories.php`, formData)
+    .then(response => {
+      //  console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data;
+          if (fetcheddata.main_image) {
+          fetcheddata.main_image = `${baseurl}/${fetcheddata.main_image}`;
+        }
+        setStories(fetcheddata);
+        
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+
+  
   return (
 <div className="container py-5 latestst">
   <div className="d-flex justify-content-between align-items-center mb-2">
@@ -18,6 +47,7 @@ function LatestStories() {
   <p className="text-muted mb-4">Words from people we love on things we care about.</p>
   <div className="row flex-nowrap overflow-auto g-3 pb-2">
     {/* Card 1 */}
+    
     <div className="col-10 col-sm-6 col-md-4 col-lg-3">
       <div className="story-card position-relative">
         <img src= {Logo1} className="story-image" alt="Logo1" />

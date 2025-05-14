@@ -9,6 +9,9 @@ import baseurl from '../../baseUrl';
 function FooterBlock() {
   const [isVisible, setIsVisible] = useState(false);
    const [logos, setLogos] = useState(null); 
+   const  [contact,setContact] = useState(null);
+   const  [icons,setIcons] = useState(null);
+ 
     const [loading, setLoading] = useState(true);
   const scrollTop = () => {
     window.scrollTo({
@@ -32,7 +35,7 @@ function FooterBlock() {
   formData.append('action', 'Display'); 
   axios.post(`${baseurl}/saveLogo.php`, formData)
     .then(response => {
-       console.log('Fetched logos:', response.data);
+      //  console.log('Fetched logos:', response.data);
       if (response.data && response.data.data && response.data.data.length > 0) {
         const fetchedLogo = response.data.data[0];
         if (fetchedLogo.footer_logo) {
@@ -48,6 +51,43 @@ function FooterBlock() {
     });
 }, []);
 
+useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveContact.php`, formData)
+    .then(response => {
+      //  console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        setContact(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+
+useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveSocialIcons.php`, formData)
+    .then(response => {
+      //  console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data;
+        setIcons(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+
+
   return (
 <>
   <footer id="footer" className="footer mt-0">
@@ -58,14 +98,21 @@ function FooterBlock() {
           {/* <Link to="/" className="d-flex align-items-center">
             <span className="sitename">Logo</span>
           </Link> */}
-    <img src={logos?.footer_logo} alt="Logo" style={{ width: '90px', marginBottom: '-40px', marginTop: '-34px' }}/>
+          <img src={logos?.footer_logo} alt="Logo" style={{ width: '90px', marginBottom: '-40px', marginTop: '-34px' }}/>
 
           <div className="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p className="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            {contact ? (
+              <>
+                <p>{contact.address}</p>
+                {/* <p>{contact.city}, {contact.zip}</p> */}
+                <p className="mt-3"><strong>Phone:</strong> <span>{contact.mobile}</span></p>
+                <p><strong>Email:</strong> <span>{contact.email}</span></p>
+              </>
+            ) : (
+              <p>Loading contact...</p>
+            )}
           </div>
+
         </div>
         <div className="col-lg-4 col-md-3 footer-links">
           <h4>Quick Links</h4>
@@ -90,11 +137,19 @@ function FooterBlock() {
           <h4>Follow Us</h4>
          
           <div className="social-links d-flex">
-            <a href><i className="bi bi-twitter-x" /></a>
-            <a href><i className="bi bi-facebook" /></a>
-            <a href><i className="bi bi-instagram" /></a>
-            <a href><i className="bi bi-linkedin" /></a>
+            {icons ? (
+              icons.map((icon) => (
+                icon.link && (
+                  <a key={icon.id} href={icon.link} target="_blank" rel="noopener noreferrer">
+                    <i className={`bi bi-${icon.title.toLowerCase()}`} />
+                  </a>
+                )
+              ))
+            ) : (
+              <p>Loading social links...</p>
+            )}
           </div>
+
         </div>
       </div>
     </div>
