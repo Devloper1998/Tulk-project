@@ -1,11 +1,14 @@
 // src\Components\Navbar\Navbar.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { NavLink,Link } from 'react-router-dom';
-// import Logo from '../../Assets/Logo/dummy-logo.png';
+import axios from 'axios';
+import baseurl from '../../baseUrl';
 
 const Navbar = () => {
-  // Define the navigation items to avoid repetition
+  const [logos, setLogos] = useState(null); 
+  const [loading, setLoading] = useState(true);
+
   const navItems = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
@@ -14,6 +17,28 @@ const Navbar = () => {
     { to: '/webinars', label: 'Webinars' },
     { to: '/futureBussines', label: 'Featured Post' },
   ];
+
+useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveLogo.php`, formData)
+    .then(response => {
+      // console.log('Fetched logos:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetchedLogo = response.data.data[0];
+        if (fetchedLogo.header_logo) {
+          fetchedLogo.header_logo = `${baseurl}/${fetchedLogo.header_logo}`;
+        }
+        setLogos(fetchedLogo);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+
 
   return (
  <section id="bgback">
@@ -32,7 +57,8 @@ const Navbar = () => {
     >
       <span className="navbar-toggler-icon" />
     </button>
-    <Link class="navbar-brand" to="/">TLUK</Link>
+    {/* <Link class="navbar-brand" to="/">TLUK</Link> */}
+    <img src={logos?.header_logo} alt="Logo" style={{ width: '90px', marginBottom: '-40px', marginTop: '-34px' }}/>
     {/* Desktop Menu */}
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0"> 

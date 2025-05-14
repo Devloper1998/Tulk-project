@@ -3,10 +3,13 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import './Footer.css'
+import axios from 'axios'
+import baseurl from '../../baseUrl';
 
 function FooterBlock() {
   const [isVisible, setIsVisible] = useState(false);
-
+   const [logos, setLogos] = useState(null); 
+    const [loading, setLoading] = useState(true);
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -23,6 +26,28 @@ function FooterBlock() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
+
+  useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveLogo.php`, formData)
+    .then(response => {
+       console.log('Fetched logos:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetchedLogo = response.data.data[0];
+        if (fetchedLogo.footer_logo) {
+          fetchedLogo.footer_logo = `${baseurl}/${fetchedLogo.footer_logo}`;
+        }
+        setLogos(fetchedLogo);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+
   return (
 <>
   <footer id="footer" className="footer mt-0">
@@ -30,9 +55,11 @@ function FooterBlock() {
     <div className="container footer-top">
       <div className="row gy-4">
         <div className="col-lg-4 col-md-6 footer-about">
-          <Link to="/" className="d-flex align-items-center">
+          {/* <Link to="/" className="d-flex align-items-center">
             <span className="sitename">Logo</span>
-          </Link>
+          </Link> */}
+    <img src={logos?.footer_logo} alt="Logo" style={{ width: '90px', marginBottom: '-40px', marginTop: '-34px' }}/>
+
           <div className="footer-contact pt-3">
             <p>A108 Adam Street</p>
             <p>New York, NY 535022</p>
