@@ -1,5 +1,5 @@
 // src\Pages\Aboutus\About.jsx
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import aboutlogo from '../../Assets/About/about.jpg'
 import aboutlogo1 from '../../Assets/About/Aboutdata.jpg'
 import support from '../../Assets/About/support.jpg'
@@ -7,24 +7,57 @@ import connect from '../../Assets/About/connectpeople.jpg'
 import community from '../../Assets/About/commity.jpg'
 import growth from '../../Assets/About/groth.jpg'
 import './about.css'
+import axios from 'axios';
+import baseurl from '../../baseUrl';
 
 export default function About() {
+    const [about, setAbout] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+        useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveAbout.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setAbout(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
   return (
     <>
       <section className='py-5 mt-5'>
         <div className='container'>
             <div className='row'>
-                <div className='col-md-6 col-lg-6'>
+                     {about ? (
+              <>
+                <div className='col-md-6 col-lg-6' >
+
                     <div className='heading'>
+          
                         <h3>About Us</h3>
-                        <p>Welcome to Our Telugu Ladies Support Network in the UK
-Founded in December 2011  by Sridevi Meenavalli, We are a supportive and empowering community for Telugu Ladies living in the United Kingdom. Rooted in our shared culture and values, our group was founded to create a safe, welcoming space where women can connect, uplift, and inspire each other while </p>
-                       
+                        <p>{about.description}</p>
                     </div>
                 </div>
-                <div className='col-md-6 col-lg-6'>
-                    <img src= {aboutlogo} alt='' id='aboutimg'  className='rounded'/>
+                <div className='col-md-6 col-lg-6' data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <img src={about?.image} alt='' id='aboutimg'  className='rounded' />
+
                 </div>
+            </>
+            ) : (
+              <p>Loading contact...</p>
+            )}
             </div>
         </div>
 </section>
