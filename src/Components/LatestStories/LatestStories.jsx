@@ -1,27 +1,15 @@
 // src\Components\LatestStories\LatestStories.jsx
-<<<<<<< HEAD
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import Logow from '../../Assets/LatestStories/3.jpg'
 import Logo2 from '../../Assets/LatestStories/4.jpg'
 import Logo3 from '../../Assets/LatestStories/5.jpg'
 import Logo4 from '../../Assets/LatestStories/10.jpg'
-=======
-import React,{useState,useEffect} from 'react'
-import Logo1 from '../../Assets/LatestStories/1.jpg'
-import Logo2 from '../../Assets/LatestStories/2.png'
-import Logo3 from '../../Assets/LatestStories/3.jpg'
-import Logo4 from '../../Assets/LatestStories/4.jpg'
-// import Logo5 from '../../Assets/LatestStories/5.jpg'
-import { NavLink } from 'react-router-dom'
->>>>>>> 6682c11a16b4a7ef12622f45f3e7bd129563c480
 import './Lateststories.css'
 import axios from  'axios'
 import  baseurl from '../../baseUrl'
 
-<<<<<<< HEAD
-export default function LatestStories() {
-=======
+
 function LatestStories() {
   const  [stories,setStories] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -50,7 +38,6 @@ useEffect(() => {
 }, []);
 
   
->>>>>>> 6682c11a16b4a7ef12622f45f3e7bd129563c480
   return (
 <div className="container py-5" id='heads'>
   <div className="d-flex justify-content-between align-items-center mb-2" id='headnew'>
@@ -179,3 +166,5 @@ useEffect(() => {
 
   )
 }
+
+export default LatestStories;
