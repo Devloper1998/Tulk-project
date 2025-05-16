@@ -3,25 +3,26 @@ import React from 'react'
 // import Navbar from '../../Components/Navbar/Navbar'
 import Slider from '../../Components/Slider/Slider'
 import Aboutus from '../../Components/AboutUs/Aboutus'
+import LatestStories from '../../Components/LatestStories/LatestStories'
 import UpEvents from '../../Components/Events/UpEvents'
 import UpWebinars from '../../Components/Upwebnareis/UpWebinars'
-import Newsleter from '../../Components/NewsLeter/Newsleter'
 import Business from '../../Components/Businesses/Business'
-import LatestStories from '../../Components/LatestStories/LatestStories'
+import Newsleter from '../../Components/NewsLeter/Newsleter'
+
 
 
 
 export default function Home() {
   return (
    <>
-   {/* <Navbar/> */}
-   <Slider/>
-   <Aboutus/>
-    <LatestStories/>
-   <UpEvents/>
-   <UpWebinars/>
-   <Business/>
-    <Newsleter/>
+ <Slider/>
+ <Aboutus/>
+ <LatestStories/>
+ <UpEvents/>
+ <UpWebinars/>
+ <Business/>
+ <Newsleter/>
+
    </>
   )
 }

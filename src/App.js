@@ -11,6 +11,16 @@ import FutureBussines from './Pages/FutureBussines/FutureBussines';
 import Navbar from './Components/Navbar/Navbar';
 import FooterBlock from './Components/Footer/FooterBlock';
 import OtherStories from './Components/OtherStories/OtherStories';
+import ScrollToTop from './ScrollToTop';
+
+// Params data Pages
+import StoriesDetails from './Components/Stories-Details/StoriesDetails';
+import Allstories from './Components/All-Stories/Allstories';
+import EventDetail from './Components/Events-Details/EventDetail';
+import Allevents from './Components/All-EventsPage/Allevents';
+import WebinarDetails from './Components/webinars-Details/WebinarDetails';
+import Allwebnaiers from './Components/All-webnaiers/Allwebnaiers';
+import BusinessDetails from './Components/Business-Details/BusinessDetails';
 
 
 
@@ -19,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+       <ScrollToTop />
       <Navbar/>
       <Routes>
           <Route path='/' element= {<Home/>} />
@@ -28,6 +39,14 @@ function App() {
           <Route path='/webinars' element= {<Webinars/>} />
           <Route path='/futureBussines' element= {<FutureBussines/>} />
           <Route path='/fullstories' element= {<OtherStories/>} />
+          <Route path='/stories-details' element= {<StoriesDetails/>} />
+          <Route path='/eventDetail' element= {<EventDetail/>} />
+          <Route path='/allevents' element= {<Allevents/>} />
+          <Route path='/webinar' element= {<WebinarDetails/>} />
+          <Route path='/allstories' element= {<Allstories/>} />
+          <Route path='/allwebnaiers' element= {<Allwebnaiers/>} />
+          <Route path='/businessDetail' element= {<BusinessDetails/>} />
+        
       </Routes>
       <FooterBlock/>
       </BrowserRouter>

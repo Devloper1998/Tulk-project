@@ -30,27 +30,26 @@ Founded in December 2011  by Sridevi Meenavalli, We are a supportive and empower
 </section>
 
 {/* Our Mission  */}
-      <section className='py-5'>
-        <div className='container'>
-            <div className='row'>
-                <div className='col-md-6 col-lg-6' >
-                     <img src= {aboutlogo1} alt='' id='missions' className='rounded'/>
-          
-                </div>
-                <div className='col-md-6 col-lg-6'>
-                           <div className='missionhead'>
-                        <h3>Our Mission</h3>
-                        <p>To empower Telugu women through support, guidance, and community—fostering strength, independence, and sisterhood in every stage of life abroad.</p>
-                       
-                    </div>
+<section className='py-5' id='demos'>
+    <div className='container'>
+        <div className='row'>
+            <div className='col-md-6 col-lg-6 order-2 order-md-1'>
+                <img src={aboutlogo1} alt='' id='missions' className='rounded' />
+            </div>
+            <div className='col-md-6 col-lg-6 order-1 order-md-2'>
+                <div className='missionhead'>
+                    <h3>Our Mission</h3>
+                    <p>To empower Telugu women through support, guidance, and community—fostering strength, independence, and sisterhood in every stage of life abroad.</p>
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 
+
 {/* What you do? */}
-      <section className='py-5'>
+      <section className='py-5' id='demos'>
         <div className='container'>
             <div className='row'>
                 <div className='col-md-6 col-lg-6'>
@@ -68,14 +67,14 @@ Founded in December 2011  by Sridevi Meenavalli, We are a supportive and empower
 </section>
 
 {/* Cultural Connection */}
-      <section className='py-5'>
+      <section className='py-5' id='demos'>
         <div className='container'>
             <div className='row'>
-                <div className='col-md-6 col-lg-6' >
+                <div className='col-md-6 col-lg-6 order-2 order-md-1'  >
                      <img src= {connect} alt='' id='missions' className='rounded'/>
           
                 </div>
-                <div className='col-md-6 col-lg-6'>
+                <div className='col-md-6 col-lg-6 order-1 order-md-2'>
                            <div className='missionhead'>
                         <h3>Cultural Connection</h3>
                         <p>From festivals and language programs to traditional cooking classes and storytelling, we celebrate our Telugu heritage with pride.</p>
@@ -87,17 +86,17 @@ Founded in December 2011  by Sridevi Meenavalli, We are a supportive and empower
 </section>
 
 {/* Community Circles */}
-      <section className='py-5'>
+      <section className='py-5' id='demos'>
         <div className='container'>
             <div className='row'>
-                <div className='col-md-6 col-lg-6'>
+                <div className='col-md-6 col-lg-6 '>
                     <div className='heading'>
                         <h3> Community Circles</h3>
                         <p>Regular meetups, virtual check-ins, and discussion forums where women share experiences, learn from each other, and build lasting friendships.</p>
                        
                     </div>
                 </div>
-                <div className='col-md-6 col-lg-6'>
+                <div className='col-md-6 col-lg-6 '>
                     <img src= {community} alt='' id='suportimg'  className='rounded'/>
                 </div>
             </div>
@@ -109,11 +108,11 @@ Founded in December 2011  by Sridevi Meenavalli, We are a supportive and empower
       <section className='py-5'>
         <div className='container'>
             <div className='row'>
-                <div className='col-md-6 col-lg-6' >
+                <div className='col-md-6 col-lg-6 order-2 order-md-1' >
                      <img src= {growth} alt='' id='missions' className='rounded'/>
           
                 </div>
-                <div className='col-md-6 col-lg-6'>
+                <div className='col-md-6 col-lg-6 order-1 order-md-2'>
                            <div className='missionhead'>
                         <h3>Empowerment & Growth</h3>
                         <p>Workshops, speaker sessions, and networking opportunities to help women grow personally and professionally.</p>

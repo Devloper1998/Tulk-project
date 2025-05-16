@@ -16,7 +16,7 @@ function FooterBlock() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
+      setIsVisible(window.scrollY > 500);
     };
 
     window.addEventListener("scroll", toggleVisibility);

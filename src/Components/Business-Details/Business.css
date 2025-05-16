@@ -1,0 +1,88 @@
+#imghead img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+#titlehead h2{
+    font-family: 'myfont';
+    font-size: 35px;
+   
+}
+
+
+
+
+.discount-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.cardss {
+  display: flex;
+  align-items: flex-start;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cardss.active {
+  border-color: #ef4444;
+  background-color: #fff5f5;
+}
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardss.active .radio-circle {
+  border-color: #ef4444;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ef4444;
+  border-radius: 50%;
+}
+
+.card-content h3 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+  font-weight: bold;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+}
+
+.submit-btnss {
+  width: 100%;
+  padding: 14px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btnss:hover {
+  background-color: #dc2626;
+}

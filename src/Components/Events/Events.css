@@ -1,36 +1,55 @@
-
-.slick-dots {
-  display: flex !important;
-  justify-content: center;
-  gap: 10px; /* Space between the numbers */
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
-}
-
-/* Style each number */
-.dot-box {
-  width: 30px;
-  height: 30px;
-  /* border-radius: 50%; */
-  background: #ddd;
-  color: #000;
+/* Horizontal scroll container for mobile view */
+.horizontal-scroll-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 16px;
-  transition: background 0.3s, color 0.3s;
-  cursor: pointer;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  margin-left: 0.5rem;
+}
+.card-body {
+    flex: 1 1 auto !important;
+    padding: 0 !important;
+    color: #000 !important;
+}
+.card-body h5{
+    font-family: 'merifont', sans-serif;
+   font-size: 18px;
+   margin-top: 28px;
+  
+}
+#head h2{
+   font-family: 'merifont', sans-serif;
+   font-size: 30px;
+}
+.text-muted{
+  font-family: 'merifont', sans-serif;
+   font-size: 14px;
+}
+/* Hide scrollbar */
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.horizontal-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Active dot styling */
-.slick-dots .slick-active .dot-box {
-  background: #007bff; 
-  color: #fff;
+.scroll-card {
+  flex: 0 0 auto;
 }
 
-.head h1{
-   font-family: 'MyFont', sans-serif;
-       font-size: 30px;
+/* Optional: fix image height */
+.event-img {
+  height: 180px;
+  object-fit: cover;
+}
+@media (max-width: 767px) {
+  #head h2{
+   font-family: 'merifont', sans-serif;
+   font-size: 20px;
+    margin-top: -14px;
+}
+ #head .subhed{
+  margin-bottom: 25px;
+ }
 }

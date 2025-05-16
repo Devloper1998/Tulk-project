@@ -1,0 +1,92 @@
+/* src/Components/Events-Details/EventDetail.css */
+
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#phData p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #555;
+   font-family: 'merifont', sans-serif;
+}
+
+#imagdata img{
+      border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  max-height: 100%;
+  object-fit: cover;
+}
+
+#imagdata img {
+  width: 100%;
+  /* height: 80%; */
+  object-fit: 'cover'
+}
+.headimgdata h2{
+   font-family: 'MyFont', sans-serif;
+  font-size: 56px;
+}
+
+ .ticket-card {
+      width: 357px;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .ticket-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .ticket-option:first-child span:first-child {
+      color: #0033cc;
+      font-weight: 600;
+    }
+
+    .ticket-option span:last-child {
+      font-weight: 600;
+    }
+
+    .ticket-option:last-child span:first-child {
+      color: #666;
+    }
+
+    .book-button {
+      width: 91%;
+      background-color: #f53e4c;
+      color: white;
+      font-weight: 600;
+      padding: 14px 0;
+      border: none;
+      border-radius: 10px;
+      margin: 16px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .book-button:hover {
+      background-color: #e63642;
+    }
+
+    @media (max-width: 767px) {
+      .ticket-card {
+    width: 300px;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+    }

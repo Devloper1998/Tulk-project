@@ -17,5 +17,29 @@ max-width: 100%;
 #suportimg{
   max-width: 100%;
     height: auto;
- margin-top: -101px;
+ margin-top: -100px;
+}
+@media (max-width: 767px) {
+ .heading p {
+    font-size: 16px;
+    text-align: justify;
+    margin-top: 20px;
+    font-family: 'merifont', sans-serif;
+}
+#demos{
+  margin-top: -66px;
+}
+.missionhead h3{
+  font-size: 25px;
+}
+#missions{
+max-width: 100%;
+    height: auto;
+ margin-top: -8px;
+}
+#suportimg{
+  max-width: 100%;
+    height: auto;
+ margin-top: 1px;
+}
 }

@@ -1,0 +1,67 @@
+/* StoriesDetails.css */
+
+.headingTitle h2 {
+
+  color: #333;
+  margin-bottom: 10px;
+       font-family: 'MyFont', sans-serif !important;
+          font-size: 30px;
+}
+
+.headingTitle p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+    font-family: 'merifont', sans-serif !important;
+}
+
+#imagecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#imagecontainer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .headingTitle h2 {
+    font-size: 1.5rem;
+  }
+
+  .headingTitle p {
+    font-size: 0.95rem;
+  }
+
+  #imagecontainer {
+    margin-top: 20px;
+  }
+  #subhead h2{
+  font-size: 18px !important;
+  margin-left: -2px !important;
+}
+}
+
+#imagecontainer img{
+  height: 100%;
+
+}
+
+#subhead h2{
+  font-size: 35px;
+  margin-left: 35px;
+}
+#leftData h6{
+  padding: 20px;
+  font-size: 18px
+}
+#leftData p{
+  padding: 18px;
+  margin-top: -40px
+}

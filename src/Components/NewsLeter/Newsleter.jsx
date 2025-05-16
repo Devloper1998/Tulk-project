@@ -10,11 +10,11 @@ function Newsleter() {
        <section className='py-5' id='bglatter'>
   <div className="container text-center">
     <h2 className="fw-bold mb-3">Stay Updated with Our Business News</h2>
-    <p className="mb-4 fs-5">
+    <p  className="mb-4 fs-5 headpoint">
       Be First to Know About Events, Deals & More!
     </p>
 
-    <div className="d-flex justify-content-center gap-3 flex-wrap">
+    <div className="d-flex justify-content-center gap-3 flex-wrap" >
       <Link to="/" className="btn btn-primary btn-lg fw-bold px-4 rounded-3">
         Subscribe to our Newsletter
       </Link>

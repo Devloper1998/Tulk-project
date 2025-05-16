@@ -19,3 +19,13 @@
      font-family: 'MyFont', sans-serif;
        font-size: 25px;
 }
+@media (max-width: 767px) {
+       #bglatter h2 {
+    font-family: 'MyFont', sans-serif;
+    font-size: 24px;
+}
+.headpoint {
+    font-family: 'merifont', sans-serif;
+    font-size: 15px;
+}
+}

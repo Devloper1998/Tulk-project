@@ -5,10 +5,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-body{
-   font-family: 'merifont', sans-serif !important;
-  font-optical-sizing: auto !important;
-}
 
 
 .active-link {
@@ -41,18 +37,19 @@ body{
 }
 
 .menu-links a, .login-btn {
-  color: #333; /* Adjust text color */
-  text-decoration: none; /* Remove underlines */
+  color: #333;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .login-btn {
-  background-color: #007bff; /* Your desired button color */
+  background-color: #007bff; 
   color: white;
   border: none;
 }
 .logo {
-  height: 40px;  /* Adjust the size of the logo */
-  width: auto;   /* Maintain aspect ratio */
+  height: 40px;  
+  width: auto;  
 }
 
 /* Optional: You can add other styles like margin or padding for better alignment */
@@ -71,6 +68,14 @@ body{
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
 
 
+}
+.custom-offcanvas {
+  width: 200px !important;
+}
+
+.navbar-nav li a{
+ font-family: 'merifont';
+ font-size: 16px;
 }
 .offcanvas-body {
   overflow-x: scroll;
@@ -157,6 +162,12 @@ body{
     opacity: 1;
   }
 }
+.navbar-toggler {
+  padding:  30px!important;
+  border: 1px solid #fff;
+  background-color: #343a40;
+  border-radius: 0.25rem;
+}
 
 /* Hover Effect */
 .bb_button:hover {
@@ -166,4 +177,13 @@ body{
  #dall{
    border-bottom: 1px solid red !important;
    padding: 10px 20px !important;
+}
+#bg-back{
+  background-color: #000 !important;
+}
+.navbar-brand{
+  color: #fff !important;
+}
+.navbar-nav li a{
+   color: #fff !important;
 }

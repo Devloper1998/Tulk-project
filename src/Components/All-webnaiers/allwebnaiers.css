@@ -1,0 +1,11 @@
+.dot-btn {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  /* border-radius: 50%; */
+  cursor: pointer;
+}
+.dot-btn.active {
+  background-color: #dc3545; /* Bootstrap danger color */
+  color: white;
+}

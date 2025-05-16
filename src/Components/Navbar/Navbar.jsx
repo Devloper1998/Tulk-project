@@ -1,11 +1,10 @@
 // src\Components\Navbar\Navbar.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import { NavLink,Link } from 'react-router-dom';
-// import Logo from '../../Assets/Logo/dummy-logo.png';
 
 const Navbar = () => {
-  // Define the navigation items to avoid repetition
+  
   const navItems = [
     { to: '/', label: 'Home' },
     { to: '/about', label: 'About Us' },
@@ -13,74 +12,64 @@ const Navbar = () => {
     { to: '/upevents', label: 'Upcoming Events' },
     { to: '/webinars', label: 'Webinars' },
     { to: '/futureBussines', label: 'Featured Post' },
+    { to: '/', label: 'Contect' },
   ];
 
-  return (
- <section id="bgback">
- <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-  <div className="container logocontainer">
-    {/* Logo */}
-    {/* <img src={Logo} alt="Logo" className="navbar-brand" /> */}
-    
-    {/* Mobile Toggle Button */}
-    <button
-      className="btn btn-outline-light d-lg-none "
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#mobileMenu"
-      aria-controls="mobileMenu"
-    >
-      <span className="navbar-toggler-icon" />
-    </button>
-    <Link class="navbar-brand" to="/">TLUK</Link>
-    {/* Desktop Menu */}
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav ms-auto mb-2 mb-lg-0"> 
-       <li className="nav-item">
-                  <NavLink to="/" end className={({ isActive }) =>
-                    isActive ? 'nav-link active-link' : 'nav-link inactive-link'}>
-                    Home
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/about/" className={({ isActive }) =>
-                    isActive ? 'nav-link active-link' : 'nav-link inactive-link'}>
-                    About Us
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/stories" className={({ isActive }) =>
-                    isActive ? 'nav-link active-link' : 'nav-link inactive-link'}>
-                    Stories
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/upevents" className={({ isActive }) =>
-                    isActive ? 'nav-link active-link' : 'nav-link inactive-link'}>
-                    Upcoming Events
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/webinars" className={({ isActive }) =>
-                    isActive ? 'nav-link active-link' : 'nav-link inactive-link'}>
-                    Webinars
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/futureBussines" className={({ isActive }) =>
-                    isActive ? 'nav-link active-link' : 'nav-link inactive-link'}>
-                    Featured Post
-                  </NavLink>
-                </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  const location = useLocation();
 
+  useEffect(() => {
+    const offcanvasElement = document.getElementById('mobileMenu');
+    if (offcanvasElement && window.bootstrap) {
+      const offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+      if (offcanvas) {
+        offcanvas.hide();
+      }
+    }
+  }, [location]);
+
+  return (
+    <section id="bgback">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" id='bg-back'>
+        <div className="container logocontainer">
+          {/* Logo */}
+          <Link className="navbar-brand fw-bold" to="/">TLUK</Link>
+
+          {/* Mobile Toggle Button */}
+          <button
+            className="navbar-toggler p-1 px-2 btn-sm"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu"
+            aria-controls="mobileMenu"
+           
+          >
+            <span className="navbar-toggler-icon" style={{ transform: 'scale(0.8)' }}></span>
+          </button>
+
+          {/* Desktop Menu */}
+          <div className="collapse navbar-collapse d-none d-lg-block" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {navItems.map((item, index) => (
+                <li className="nav-item" key={index}>
+                  <NavLink
+                    to={item.to}
+                    end={item.to === '/'}
+                    className={({ isActive }) =>
+                      isActive ? 'nav-link active-link' : 'nav-link inactive-link'
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       {/* Mobile Offcanvas Menu */}
       <div
-        className="offcanvas offcanvas-start d-lg-none custom-offcanvas"
+        className="offcanvas offcanvas-start text-bg-dark d-lg-none"
         tabIndex={-1}
         id="mobileMenu"
         aria-labelledby="mobileMenuLabel"
@@ -92,11 +81,11 @@ const Navbar = () => {
             className="btn-close btn-close-white"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          />
+            
+          ></button>
         </div>
-
         <div className="offcanvas-body">
-          <ul className="navbar-nav mb-4">
+          <ul className="navbar-nav">
             {navItems.map((item, index) => (
               <li className="nav-item" key={index}>
                 <NavLink

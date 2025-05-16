@@ -1,28 +1,53 @@
-/* UpWebinars.css */
-.slider-navigation {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+.custom-dots {
+  margin-bottom: 50px;
 }
 
-.slider-nav-button {
-  background-color: #ddd;
+.dot-btn {
   border: none;
-  border-radius: 6%;
+  background-color: #ccc;
+  color: #000;
   width: 30px;
   height: 30px;
-  padding: 3px;
-  font-size: 16px;
+  /* border-radius: 50%; */
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.slider-nav-button.active {
-  background-color: #007bff;
-  color: white;
+.dot-btn.active {
+  background-color: #dc3545; /* Bootstrap 'danger' */
+  color: #fff;
 }
 
-.slider-nav-button:hover {
-  background-color: #bbb;
+.dot-btn:hover {
+  background-color: #a71d2a;
+  color: #fff;
+}
+.image-wrapper {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  #head h2 {
+    font-size: 20px;
+  }
+  #head .subhead{
+   font-size: 12px;
+   margin-right: -6px;
+   margin-top: -22px;
+  }
 }

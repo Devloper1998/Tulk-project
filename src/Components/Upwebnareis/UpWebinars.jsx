@@ -14,22 +14,27 @@ function UpWebinars() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const settings = {
-    dots: false,  // Disable default dots
+    dots: false, 
+    arrows: false, 
     infinite: true,
     speed: 500,
-    slidesToShow: 3, 
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    beforeChange: (current, next) => setActiveIndex(next), 
+    beforeChange: (current, next) => setActiveIndex(next),
     responsive: [
       {
         breakpoint: 1024,
-        settings: { slidesToShow: 2 }
+        settings: {
+          slidesToShow: 2
+        }
       },
       {
         breakpoint: 600,
-        settings: { slidesToShow: 1 }
+        settings: {
+          slidesToShow: 1
+        }
       }
     ]
   };
@@ -42,34 +47,42 @@ function UpWebinars() {
   ];
 
   return (
-    <div className='container mt-5 head'>
-        <div className="d-flex justify-content-between align-items-center mb-2">
-          <h2 className="section-title">Upcoming Webinars</h2>
-          <NavLink to="/webinars" className="text-danger text-decoration-none fw-medium">All Webinars →</NavLink>
-        </div>
-    
+    <div className='container mt-5 '>
+      <div className="d-flex justify-content-between align-items-center mb-2" id='head'>
+        <h2 className="section-title">Upcoming Webinars</h2>
+        <NavLink to="allwebnaiers" className="text-danger text-decoration-none fw-medium subhead">All Webinars →</NavLink>
+      </div>
+
       <Slider {...settings}>
         {events.map((event, index) => (
           <div key={index} className="p-2">
-            <div className="card h-100 border-0">
-              <img src={event.img} className="card-img-top rounded-top aspect-4/3" alt="Event" />
-              <div className="card-body">
-                <h5 className="card-title fw-bold">{event.title}</h5>
-                <p className="text-danger mb-1">30 Apr 2025, 18:00 - 20:00</p>
-                <p className="mb-1">The Lyceum, 30b Grindlay Street Edinburgh</p>
-                <p className="text-muted">Tickets from £40.00</p>
-              </div>
-            </div>
+              <NavLink
+                          to="/webinar"
+                          state={{ event }}
+                          className="text-decoration-none text-dark"
+                        >
+      <div className="card h-100 border-0">
+  <div className="image-wrapper">
+    <img src={event.img} className="card-img-top" alt="Event" />
+  </div>
+  <div className="card-body">
+    <h5 className="card-title fw-bold">{event.title}</h5>
+    <p className="text-danger mb-1">30 Apr 2025, 18:00 - 20:00</p>
+    <p className="mb-1">The Lyceum, 30b Grindlay Street Edinburgh</p>
+    <p className="text-muted">Tickets from £40.00</p>
+  </div>
+</div>
+</NavLink>
           </div>
         ))}
       </Slider>
 
-      {/* Custom numbered navigation */}
-      <div className="slider-navigation">
+      {/* Custom numbered dots */}
+      <div className="custom-dots text-center mt-3">
         {events.map((_, index) => (
           <button
             key={index}
-            className={`slider-nav-button ${index === activeIndex ? 'active' : ''}`}
+            className={`dot-btn mx-1 ${index === activeIndex ? 'active' : ''}`}
             onClick={() => setActiveIndex(index)}
           >
             {index + 1}
