@@ -1,6 +1,6 @@
 // src\Components\AboutUs\Aboutus.jsx
 import React, {useEffect,useState} from 'react'
-// import aboutlogo from '../../Assets/About/about.jpg'
+import aboutlogo from '../../Assets/About/about.jpg'
 import aboutlogo2 from '../../Assets/About/about2.jpg'
 import aboutlogo3 from '../../Assets/About/about3.jpg'
 import './About.css'
@@ -45,33 +45,36 @@ function Aboutus() {
 }, []);
   return (
 <>
-     {/* <section className='py-5 bg-light'>
-        <div className='container'>
-                          
-                        {about ? (
-              <>
-            <div className='row'>
-                <div className='col-md-6 col-lg-6' data-aos="zoom-in" >
-                <div className='col-md-6 col-lg-6' >
-
-                    <div className='heading'>
-          
-                        <h3>About Us</h3>
-                        <p>{about.description}</p>
-                    </div>
-                </div>
-                <div className='col-md-6 col-lg-6' data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                    <img src={about?.image} alt='' id='aboutimg'  className='rounded' />
-
-                </div>
-            </div>
-
-            </>
-            ) : (
-              <p>Loading contact...</p>
-            )}
+<section className='py-5 bg-light'> 
+  <div className='container'>
+    {about ? (
+      <div className='row'>
+        <div className='col-md-6 col-lg-6' data-aos="zoom-in">
+          <div className='heading'>
+            <h3>About Us</h3>
+            <p>{about.description}</p>
+          </div>
         </div>
-</section> */}
+        <div
+          className='col-md-6 col-lg-6'
+          data-aos='fade-right'
+          data-aos-offset='300'
+          data-aos-easing='ease-in-sine'
+        >
+          <img
+            src={about?.image}
+            alt=''
+            id='aboutimg'
+            className='rounded'
+          />
+        </div>
+      </div>
+    ) : (
+      <p>Loading contact...</p>
+    )}
+  </div>
+</section>
+
 
 {/* our imparct */}
 
