@@ -15,11 +15,11 @@ function Business() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const settings = {
-    dots: false, // Disable default dots
-    arrows: false, // Disable arrows
+    dots: false, 
+    arrows: false, 
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,

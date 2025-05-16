@@ -1,3 +1,4 @@
+// src\Components\Navbar\Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
@@ -16,7 +17,7 @@ const Navbar = () => {
     { to: '/upevents', label: 'Upcoming Events' },
     { to: '/webinars', label: 'Webinars' },
     { to: '/futureBussines', label: 'Featured Post' },
-    { to: '/', label: 'Contect' },
+    { to: '/contact', label: 'Contactus' },
   ];
 
   useEffect(() => {
@@ -69,6 +70,7 @@ const Navbar = () => {
             data-bs-toggle="offcanvas"
             data-bs-target="#mobileMenu"
             aria-controls="mobileMenu"
+            style={{backgroundColor: '#fff'}}
           >
             <span className="navbar-toggler-icon" style={{ transform: 'scale(0.8)' }}></span>
           </button>
@@ -100,6 +102,7 @@ const Navbar = () => {
         tabIndex={-1}
         id="mobileMenu"
         aria-labelledby="mobileMenuLabel"
+         backdrop={true}
       >
         <div className="offcanvas-header border-bottom border-secondary">
           <h5 className="offcanvas-title text-white" id="mobileMenuLabel">Menu</h5>
@@ -108,12 +111,13 @@ const Navbar = () => {
             className="btn-close btn-close-white"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
+            style={{backgroundColor: '#fff !importent'}}
           ></button>
         </div>
         <div className="offcanvas-body">
           <ul className="navbar-nav">
             {navItems.map((item, index) => (
-              <li className="nav-item" key={index}>
+              <li className="nav-item" data-bs-dismiss="offcanvas" key={index}>
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>

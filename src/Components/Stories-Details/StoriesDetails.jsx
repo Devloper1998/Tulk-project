@@ -3,6 +3,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './StoriesDetails.css';
 
+
 function StoriesDetails() {
   const location = useLocation();
   const navigate = useNavigate();

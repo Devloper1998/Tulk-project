@@ -1,4 +1,4 @@
-// src/Components/All-Stories/Allstories.jsx
+// src\Pages\All-Stories\Allstories.jsx
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logow from '../../Assets/LatestStories/3.jpg';

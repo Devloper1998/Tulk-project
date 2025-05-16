@@ -1,6 +1,6 @@
 // src\Pages\HomeScreen\Home.jsx
 import React from 'react'
-// import Navbar from '../../Components/Navbar/Navbar'
+
 import Slider from '../../Components/Slider/Slider'
 import Aboutus from '../../Components/AboutUs/Aboutus'
 import LatestStories from '../../Components/LatestStories/LatestStories'

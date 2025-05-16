@@ -165,7 +165,7 @@
 .navbar-toggler {
   padding:  30px!important;
   border: 1px solid #fff;
-  background-color: #343a40;
+  background-color: #000;
   border-radius: 0.25rem;
 }
 
@@ -178,12 +178,20 @@
    border-bottom: 1px solid red !important;
    padding: 10px 20px !important;
 }
-#bg-back{
-  background-color: #000 !important;
-}
+
 .navbar-brand{
   color: #fff !important;
 }
-.navbar-nav li a{
-   color: #fff !important;
+
+
+@media (max-width: 768px) {
+  .offcanvas-start {
+    width: 250px !important; 
+  }
+}
+
+@media (min-width: 769px) {
+  .offcanvas-start {
+    width: 400px !important; 
+  }
 }

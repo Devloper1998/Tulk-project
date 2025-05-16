@@ -1,5 +1,7 @@
 // src\App.js
 import './App.css';
+import React, { useState, useEffect } from 'react';
+
 
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './Pages/HomeScreen/Home';
@@ -12,6 +14,7 @@ import Navbar from './Components/Navbar/Navbar';
 import FooterBlock from './Components/Footer/FooterBlock';
 import OtherStories from './Components/OtherStories/OtherStories';
 import ScrollToTop from './ScrollToTop';
+import Contact from './Pages/ContactUs/Contact';
 
 // Params data Pages
 import StoriesDetails from './Components/Stories-Details/StoriesDetails';
@@ -22,9 +25,25 @@ import WebinarDetails from './Components/webinars-Details/WebinarDetails';
 import Allwebnaiers from './Components/All-webnaiers/Allwebnaiers';
 import BusinessDetails from './Components/Business-Details/BusinessDetails';
 
+import Loaders from './Pages/Loader/Loaders';
+
 
 
 function App() {
+   const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loaders />;
+  }
 
   return (
     <div className="App">
@@ -46,6 +65,7 @@ function App() {
           <Route path='/allstories' element= {<Allstories/>} />
           <Route path='/allwebnaiers' element= {<Allwebnaiers/>} />
           <Route path='/businessDetail' element= {<BusinessDetails/>} />
+          <Route path='/contact' element= {<Contact/>} />
         
       </Routes>
       <FooterBlock/>

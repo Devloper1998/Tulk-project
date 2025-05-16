@@ -7,27 +7,14 @@ import axios from 'axios'
 import baseurl from '../../baseUrl';
 
 function FooterBlock() {
-  const [isVisible, setIsVisible] = useState(false);
+
    const [logos, setLogos] = useState(null); 
    const  [contact,setContact] = useState(null);
    const  [icons,setIcons] = useState(null);
- 
     const [loading, setLoading] = useState(true);
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 500);
-    };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
+
 
 
   useEffect(() => {
@@ -123,6 +110,7 @@ useEffect(() => {
             <li><i className="bi bi-chevron-right" /> <Link to="/">Stories</Link></li>
               <li><i className="bi bi-chevron-right" /> <Link to="/">Webinars</Link></li>
             <li><i className="bi bi-chevron-right" /> <Link to="/">Featured Post</Link></li>
+            <li><i className="bi bi-chevron-right" /> <Link to="/">Contact us</Link></li>
           </ul>
         </div>
         {/* <div className="col-lg-3 col-md-3 footer-links py-5">
@@ -165,13 +153,7 @@ useEffect(() => {
 </section>
   </footer>
   {/* Scroll Top */}
-   <>
-      {isVisible && (
-        <Link onClick={scrollTop} className="scroll-top d-flex align-items-center justify-content-center">
-          <i className="bi bi-arrow-up-short"></i>
-        </Link>
-      )}
-    </>
+ 
 </>
 
 

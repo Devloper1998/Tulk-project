@@ -18,7 +18,7 @@ function UpWebinars() {
     arrows: false, 
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -50,7 +50,14 @@ function UpWebinars() {
     <div className='container mt-5 '>
       <div className="d-flex justify-content-between align-items-center mb-2" id='head'>
         <h2 className="section-title">Upcoming Webinars</h2>
-        <NavLink to="allwebnaiers" className="text-danger text-decoration-none fw-medium subhead">All Webinars →</NavLink>
+                  <span
+  onClick={() => (window.location.href = '/allwebnaiers')}
+  className="text-danger text-decoration-none fw-medium subhead"
+  style={{ cursor: 'pointer' }}
+>
+  All Webinars →
+</span>
+        {/* <NavLink to="allwebnaiers" className="text-danger text-decoration-none fw-medium subhead">All Webinars →</NavLink> */}
       </div>
 
       <Slider {...settings}>

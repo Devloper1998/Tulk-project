@@ -1,3 +1,4 @@
+// src\Components\LatestStories\LatestStories.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Logow from '../../Assets/LatestStories/3.jpg';
@@ -15,8 +16,7 @@ function LatestStories() {
   useEffect(() => {
     const formData = new FormData();
     formData.append('action', 'Display');
-
-    axios.post(`${baseurl}/saveStories.php`, formData)
+     axios.post(`${baseurl}/saveStories.php`, formData)
       .then(response => {
         if (response.data && response.data.data && response.data.data.length > 0) {
           const fetcheddata = response.data.data;
@@ -37,9 +37,17 @@ function LatestStories() {
     <div className="container py-5" id='heads'>
       <div className="d-flex justify-content-between align-items-center mb-2" id='headnew'>
         <h2 className="section-title">Latest stories</h2>
-        <Link to="/allstories" className="text-danger text-decoration-none fw-medium subheading">
+        {/* <Link to="/allstories" className="text-danger text-decoration-none fw-medium subheading">
           All stories →
-        </Link>
+        </Link> */}
+        <span
+  onClick={() => (window.location.href = '/allstories')}
+  className="text-danger text-decoration-none fw-medium subheading"
+  style={{ cursor: 'pointer' }}
+>
+  All stories →
+</span>
+
       </div>
       <p className="text-muted mb-4">Words from people we love on things we care about.</p>
       <div className="row flex-nowrap overflow-auto g-3 pb-2">

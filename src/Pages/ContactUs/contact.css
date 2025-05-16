@@ -1,0 +1,33 @@
+#headingContain h1{
+  font-family: 'myfont';
+  font-size: 60px;
+}
+#headingContain p{
+  font-size: 15px
+}
+.btnbig {
+  
+  padding: 8px 43%;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  background-color:rgb(205, 27, 36); /* Bootstrap primary color */
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+ 
+  
+}
+
+.btnbig:hover {
+  background-color:rgb(179, 0, 12);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #fff;
+}
+
+.btnbig:active {
+  transform: translateY(0);
+}
