@@ -51,12 +51,9 @@ function Aboutus() {
                         {about ? (
               <>
             <div className='row'>
-<<<<<<< HEAD
                 <div className='col-md-6 col-lg-6' data-aos="zoom-in" >
-=======
                 <div className='col-md-6 col-lg-6' >
 
->>>>>>> 6682c11a16b4a7ef12622f45f3e7bd129563c480
                     <div className='heading'>
           
                         <h3>About Us</h3>
