@@ -45,7 +45,7 @@ function Aboutus() {
 }, []);
   return (
 <>
-     <section className='py-5 bg-light'>
+     {/* <section className='py-5 bg-light'>
         <div className='container'>
                           
                         {about ? (
@@ -71,7 +71,7 @@ function Aboutus() {
               <p>Loading contact...</p>
             )}
         </div>
-</section>
+</section> */}
 
 {/* our imparct */}
 
