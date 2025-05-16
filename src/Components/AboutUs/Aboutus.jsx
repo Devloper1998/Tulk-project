@@ -1,6 +1,6 @@
 // src\Components\AboutUs\Aboutus.jsx
 import React, {useEffect,useState} from 'react'
-import aboutlogo from '../../Assets/About/about.jpg'
+// import aboutlogo from '../../Assets/About/about.jpg'
 import aboutlogo2 from '../../Assets/About/about2.jpg'
 import aboutlogo3 from '../../Assets/About/about3.jpg'
 import './About.css'
