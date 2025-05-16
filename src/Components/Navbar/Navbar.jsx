@@ -1,15 +1,8 @@
 // src\Components\Navbar\Navbar.jsx
-<<<<<<< HEAD
-import React, { useEffect } from 'react';
+
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-
-const Navbar = () => {
-  
-=======
 import React, { useState, useEffect } from 'react';
-import './Navbar.css';
-import { NavLink,Link } from 'react-router-dom';
 import axios from 'axios';
 import baseurl from '../../baseUrl';
 
@@ -28,9 +21,7 @@ const Navbar = () => {
     { to: '/', label: 'Contect' },
   ];
 
-<<<<<<< HEAD
   const location = useLocation();
-=======
 useEffect(() => {
   const formData = new FormData();
   formData.append('action', 'Display'); 
@@ -52,6 +43,15 @@ useEffect(() => {
     });
 }, []);
 
+  useEffect(() => {
+    const offcanvasElement = document.getElementById('mobileMenu');
+    if (offcanvasElement && window.bootstrap) {
+      const offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+      if (offcanvas) {
+        offcanvas.hide();
+      }
+    }
+  }, [location]);
 
   return (
  <section id="bgback">
@@ -115,17 +115,8 @@ useEffect(() => {
     </div>
   </div>
 </nav>
->>>>>>> 6682c11a16b4a7ef12622f45f3e7bd129563c480
 
-  useEffect(() => {
-    const offcanvasElement = document.getElementById('mobileMenu');
-    if (offcanvasElement && window.bootstrap) {
-      const offcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
-      if (offcanvas) {
-        offcanvas.hide();
-      }
-    }
-  }, [location]);
+
 
   return (
     <section id="bgback">
