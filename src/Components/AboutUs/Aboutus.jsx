@@ -1,6 +1,6 @@
 // src\Components\AboutUs\Aboutus.jsx
 import React, {useEffect,useState} from 'react'
-import aboutlogo from '../../Assets/About/about.jpg'
+// import aboutlogo from '../../Assets/About/about.jpg'
 import aboutlogo2 from '../../Assets/About/about2.jpg'
 import aboutlogo3 from '../../Assets/About/about3.jpg'
 import './About.css'
@@ -49,18 +49,14 @@ function Aboutus() {
   <div className='container'>
     {about ? (
       <div className='row'>
-        <div className='col-md-6 col-lg-6' data-aos="zoom-in">
+        <div className='col-md-6 col-lg-6'>
           <div className='heading'>
             <h3>About Us</h3>
             <p>{about.description}</p>
           </div>
         </div>
         <div
-          className='col-md-6 col-lg-6'
-          data-aos='fade-right'
-          data-aos-offset='300'
-          data-aos-easing='ease-in-sine'
-        >
+          className='col-md-6 col-lg-6'>
           <img
             src={about?.image}
             alt=''
@@ -83,7 +79,7 @@ function Aboutus() {
     <div className='col-lg-6 col-md-6 image-block'>
       <img src={aboutlogo2} alt='' id='aboutimg1' className='rounded' />
     </div>
-    <div className='col-lg-6 col-md-6 py-5 mt-3 text-block' data-aos="zoom-in-right">
+    <div className='col-lg-6 col-md-6 py-5 mt-3 text-block'>
       <div className='heading2'>
         <h3>Our Impact</h3>
         <p>

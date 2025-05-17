@@ -50,7 +50,7 @@ export default function About() {
                         <p>{about.description}</p>
                     </div>
                 </div>
-                <div className='col-md-6 col-lg-6' data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <div className='col-md-6 col-lg-6'>
                     <img src={about?.image} alt='' id='aboutimg'  className='rounded' />
 
                 </div>

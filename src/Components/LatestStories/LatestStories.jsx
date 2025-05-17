@@ -37,16 +37,10 @@ function LatestStories() {
     <div className="container py-5" id='heads'>
       <div className="d-flex justify-content-between align-items-center mb-2" id='headnew'>
         <h2 className="section-title">Latest stories</h2>
-        {/* <Link to="/allstories" className="text-danger text-decoration-none fw-medium subheading">
+        <Link to="/allstories" className="text-danger text-decoration-none fw-medium subheading">
           All stories →
-        </Link> */}
-        <span
-  onClick={() => (window.location.href = '/allstories')}
-  className="text-danger text-decoration-none fw-medium subheading"
-  style={{ cursor: 'pointer' }}
->
-  All stories →
-</span>
+        </Link>
+
 
       </div>
       <p className="text-muted mb-4">Words from people we love on things we care about.</p>

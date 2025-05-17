@@ -19,16 +19,10 @@ function UpEvents() {
     <div className='container'>
      <div className="d-flex justify-content-between align-items-center mb-3 w-100 flex-nowrap" id='head'>
         <h2 className="section-title">Upcoming Events</h2>
-          <span
-  onClick={() => (window.location.href = '/allevents')}
-  className="text-danger text-decoration-none fw-medium subheading"
-  style={{ cursor: 'pointer' }}
->
-  All Events →
-</span>
-        {/* <NavLink to="/allevents" className="text-danger text-decoration-none fw-medium subhed">
+
+        <NavLink to="/allevents" className="text-danger text-decoration-none fw-medium subhed">
           All Events →
-        </NavLink> */}
+        </NavLink>
       </div>
 
       {/* Desktop View */}
