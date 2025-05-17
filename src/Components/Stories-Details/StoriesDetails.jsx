@@ -49,9 +49,11 @@ function StoriesDetails() {
               
                <div className='col-md-4 d-done d-md-block'>
                 <div className='card border-none bg-white' id='leftData'>
-                   <h6>Marketing</h6>
-                   <p>{author}</p>
-                   
+                  <div className="authow mt-2">
+                  <img src={image} className="author-img" alt='imag3' />
+                  <h6>{title3}</h6>
+                  <p>{author}</p>
+                </div>
                 </div>
 
               </div>

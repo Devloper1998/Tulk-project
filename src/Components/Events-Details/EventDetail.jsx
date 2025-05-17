@@ -36,7 +36,7 @@ function EventDetail() {
               </div>
               
                <div className='col-md-4'>
-              <div class="ticket-card">
+              {/* <div class="ticket-card">
     <div class="ticket-option">
       <span>Egg members</span>
       <span>£50.00</span>
@@ -46,7 +46,7 @@ function EventDetail() {
       <span>£55.00</span>
     </div>
     <button class="book-button">Book tickets</button>
-  </div>
+  </div> */}
 
               </div>
            </div>

@@ -46,8 +46,14 @@
   font-size: 18px !important;
   margin-left: -2px !important;
 }
-}
 
+}
+.authow img{
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+}
 #imagecontainer img{
   height: 100%;
 
@@ -65,3 +71,4 @@
   padding: 18px;
   margin-top: -40px
 }
+
