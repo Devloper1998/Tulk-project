@@ -1,88 +1,125 @@
-// src\Pages\ContactUs\Contact.jsx
-import React from 'react'
-import './contact.css'
-import { Link } from 'react-router-dom'
+import './contact.css';
+import axios from 'axios';
+import baseurl from '../../baseUrl';
+import { useState } from 'react';
 
 function Contact() {
-  return (
-    <>
-<div className="container py-5 mt-5">
-  <div className="row justify-content-center align-items-center">
-    <div className="col-md-6 text-center" id="headingContain">
-      <h1>Get in Touch</h1>
-      <p>
-        Please complete the form below for any queries regarding working with us,
-        business listings, or any other general enquiries.
-      </p>
+  const [formData, setFormData] = useState({
+    username: '',
+    useremail: '',
+    phone: '',
+    message: ''
+  });
 
-      <p>If you need any support please email info@weareegg.co.uk We aim to respond to customer emails within 48 hours.</p>
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [id]: value
+    }));
+  };
 
-      {/* Form page */}
-<div className="container ">
-  <div className="row">
-    {/* Right Side: Contact Form */}
-    <div className="col-lg-12 col-md-6">
-     
-      <form>
-        {/* Name */}
-        <div className="mb-3 row align-items-center">
-         
-          <div className="col-sm-12">
-            <input type="text" className="form-control" id="name" placeholder="Your Name" required />
-          </div>
-        </div>
-
-        {/* Email */}
-        <div className="mb-3 row align-items-center">
-         
-          <div className="col-sm-12">
-            <input type="email" className="form-control" id="email" placeholder="Your Email" required />
-          </div>
-        </div>
-
-        {/* Phone */}
-        <div className="mb-3 row align-items-center">
-         
-          <div className="col-sm-12">
-            <input type="tel" className="form-control" id="phone" placeholder="Your Phone Number" required />
-          </div>
-        </div>
-
-        {/* Message */}
-        <div className="mb-3 row align-items-start">
-        
-          <div className="col-sm-12">
-            <textarea className="form-control" id="message" rows="4" placeholder="Type your message here..." required></textarea>
-          </div>
-        </div>
-
-        {/* Submit Button */}
+  const handleSubmit = (e) => {
+    e.preventDefault();
     
-        <Link to= '/' className="btnbig">Submit</Link>
-        
+    const newFormData = new FormData();
+    newFormData.append('username', formData.username);
+    newFormData.append('useremail', formData.useremail);
+    newFormData.append('phone', formData.phone);
+    newFormData.append('message', formData.message);
+    newFormData.append('action', 'save');
 
-      </form>
+    axios.post(`${baseurl}/saveContact.php`, newFormData)
+      .then(response => {
+        console.log('Form submitted successfully:', response.data);
+        alert('Thank you for contacting us!');
+        setFormData({
+          username: '',
+          useremail: '',
+          phone: '',
+          message: ''
+        });
+      })
+      .catch(error => {
+        console.error('There was an error submitting the form!', error);
+        alert('Something went wrong. Please try again later.');
+      });
+  };
+
+  return (
+    <div className="container py-5 mt-5">
+      <div className="row justify-content-center align-items-center">
+        <div className="col-md-6 text-center" id="headingContain">
+          <h1>Get in Touch</h1>
+          <p>Please complete the form below for any queries regarding working with us, business listings, or other enquiries.</p>
+
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12 col-md-6">
+                <form onSubmit={handleSubmit}>
+                  {/* Name */}
+                  <div className="mb-3">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      placeholder="Your Name"
+                      value={formData.username}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="mb-3">
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="useremail"
+                      placeholder="Your Email"
+                      value={formData.useremail}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div className="mb-3">
+                    <input
+                      type="tel"
+                      className="form-control"
+                      id="phone"
+                      placeholder="Your Phone Number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  {/* Message */}
+                  <div className="mb-3">
+                    <textarea
+                      className="form-control"
+                      id="message"
+                      rows="4"
+                      placeholder="Type your message here..."
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button type="submit" className="btnbig">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-    </>
-
-
-
-  )
+  );
 }
 
-export default Contact
+export default Contact;
