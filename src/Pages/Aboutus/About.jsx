@@ -12,6 +12,11 @@ import baseurl from '../../baseUrl';
 
 export default function About() {
     const [about, setAbout] = useState(null);
+    const [mission, setMission] = useState(null);
+    const [support, setSupport] = useState(null);
+    const [connection, setConnection] = useState(null);
+    const [community, setCommunity] = useState(null);
+    const [empowerment, setEmpowerment] = useState(null);
     const [loading, setLoading] = useState(true);
 
         useEffect(() => {
@@ -27,6 +32,111 @@ export default function About() {
         }
         
         setAbout(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+    useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveMission.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setMission(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+    useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveSupport.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setSupport(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+    useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveCommunity.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setCommunity(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+    useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveConnection.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setConnection(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+    useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveEmpowerment.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setEmpowerment(fetcheddata);
       }
       setLoading(false);
     })
@@ -56,7 +166,7 @@ export default function About() {
                 </div>
             </>
             ) : (
-              <p>Loading contact...</p>
+              <p>Loading ..</p>
             )}
             </div>
         </div>
@@ -65,17 +175,21 @@ export default function About() {
 {/* Our Mission  */}
 <section className='py-5' id='demos'>
     <div className='container'>
+        {mission ? (
         <div className='row'>
             <div className='col-md-6 col-lg-6 order-2 order-md-1'>
-                <img src={aboutlogo1} alt='' id='missions' className='rounded' />
+                <img src={mission?.image} alt='' id='missions' className='rounded' />
             </div>
             <div className='col-md-6 col-lg-6 order-1 order-md-2'>
                 <div className='missionhead'>
                     <h3>Our Mission</h3>
-                    <p>To empower Telugu women through support, guidance, and community—fostering strength, independence, and sisterhood in every stage of life abroad.</p>
+                    <p>{mission.description}</p>
                 </div>
             </div>
         </div>
+        ) : (
+      <p>Loading...</p>
+    )}
     </div>
 </section>
 
@@ -84,55 +198,67 @@ export default function About() {
 {/* What you do? */}
       <section className='py-5' id='demos'>
         <div className='container'>
+            {support ? (
             <div className='row'>
                 <div className='col-md-6 col-lg-6'>
                     <div className='heading'>
                         <h3> Support & Guidance</h3>
-                        <p>We offer emotional support, practical advice, and mentorship to help each other navigate life’s challenges,whether it’s settling into the UK, parenting, work-life balance, or personal growth.</p>
+                        <p>{support.description}</p>
                        
                     </div>
                 </div>
                 <div className='col-md-6 col-lg-6'>
-                    <img src= {support} alt='' id='suportimg'  className='rounded'/>
+                    <img src= {support?.image} alt='' id='suportimg'  className='rounded'/>
                 </div>
             </div>
+            ) : (
+      <p>Loading...</p>
+    )}
         </div>
 </section>
 
 {/* Cultural Connection */}
       <section className='py-5' id='demos'>
         <div className='container'>
+            {connection ? (
             <div className='row'>
                 <div className='col-md-6 col-lg-6 order-2 order-md-1'  >
-                     <img src= {connect} alt='' id='missions' className='rounded'/>
+                     <img src= {connection ?.image} alt='' id='missions' className='rounded'/>
           
                 </div>
                 <div className='col-md-6 col-lg-6 order-1 order-md-2'>
                            <div className='missionhead'>
                         <h3>Cultural Connection</h3>
-                        <p>From festivals and language programs to traditional cooking classes and storytelling, we celebrate our Telugu heritage with pride.</p>
+                        <p>{connection.description}</p>
                        
                     </div>
                 </div>
             </div>
+            ) : (
+      <p>Loading...</p>
+    )}
         </div>
 </section>
 
 {/* Community Circles */}
       <section className='py-5' id='demos'>
         <div className='container'>
+            {community ? (
             <div className='row'>
                 <div className='col-md-6 col-lg-6 '>
                     <div className='heading'>
                         <h3> Community Circles</h3>
-                        <p>Regular meetups, virtual check-ins, and discussion forums where women share experiences, learn from each other, and build lasting friendships.</p>
+                        <p>{community.description}</p>
                        
                     </div>
                 </div>
                 <div className='col-md-6 col-lg-6 '>
-                    <img src= {community} alt='' id='suportimg'  className='rounded'/>
+                    <img src= {community?.image} alt='' id='suportimg'  className='rounded'/>
                 </div>
             </div>
+             ) : (
+      <p>Loading...</p>
+    )}
         </div>
 </section>
 
@@ -140,19 +266,23 @@ export default function About() {
      {/* Empowerment & Growth */}
       <section className='py-5'>
         <div className='container'>
+             {empowerment ? (
             <div className='row'>
                 <div className='col-md-6 col-lg-6 order-2 order-md-1' >
-                     <img src= {growth} alt='' id='missions' className='rounded'/>
+                     <img src= {empowerment?.image} alt='' id='missions' className='rounded'/>
           
                 </div>
                 <div className='col-md-6 col-lg-6 order-1 order-md-2'>
                            <div className='missionhead'>
                         <h3>Empowerment & Growth</h3>
-                        <p>Workshops, speaker sessions, and networking opportunities to help women grow personally and professionally.</p>
+                        <p>{empowerment.description}</p>
                        
                     </div>
                 </div>
             </div>
+             ) : (
+      <p>Loading...</p>
+    )}
         </div>
 </section> 
     </>

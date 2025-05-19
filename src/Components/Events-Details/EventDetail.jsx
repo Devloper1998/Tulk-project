@@ -1,5 +1,6 @@
 // src\Components\Events-Details\EventDetail.jsx
 import React from 'react'
+import Logo from '../../Assets/Events/1.jpg';
 import { useLocation } from 'react-router-dom';
 import './eventsdetail.css'
 
@@ -12,7 +13,7 @@ function EventDetail() {
     <div className="container mt-4 py-5">
       <div className='row'>
         <div className='col-lg-12 col-md-12' id='imagdata'>
-           <img src={event.img} alt={event.title} className="img-fluid mb-3" />
+           <img src={event.Logo} alt={event.title} className="img-fluid mb-3" />
         </div>
         <div className='headimgdata'>
            <div className='row'>

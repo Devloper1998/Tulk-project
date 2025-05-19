@@ -58,7 +58,7 @@ function App() {
           <Route path='/webinars' element= {<Webinars/>} />
           <Route path='/futureBussines' element= {<FutureBussines/>} />
           <Route path='/fullstories' element= {<OtherStories/>} />
-          <Route path='/stories-details' element= {<StoriesDetails/>} />
+          <Route path="/stories-details/:id" element={<StoriesDetails />} />
           <Route path='/eventDetail' element= {<EventDetail/>} />
           <Route path='/allevents' element= {<Allevents/>} />
           <Route path='/webinar' element= {<WebinarDetails/>} />

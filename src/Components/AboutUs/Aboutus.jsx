@@ -13,6 +13,8 @@ import baseurl from '../../baseUrl';
 
 function Aboutus() {
     const [about, setAbout] = useState(null);
+    const [impact, setImpact] = useState(null);
+    const [whyjoin, setWhyjoin] = useState(null);
     const [loading, setLoading] = useState(true);
     
        useEffect(() => {
@@ -35,6 +37,48 @@ function Aboutus() {
         }
         
         setAbout(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveImpact.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setImpact(fetcheddata);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, []);
+useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Display'); 
+  axios.post(`${baseurl}/saveWhyjoinus.php`, formData)
+    .then(response => {
+        // console.log('Fetched data:', response.data);
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetcheddata = response.data.data[0];
+        if (fetcheddata.image) {
+            fetcheddata.image = `${baseurl}/${fetcheddata.image}`;
+        }
+        
+        setWhyjoin(fetcheddata);
       }
       setLoading(false);
     })
@@ -66,7 +110,7 @@ function Aboutus() {
         </div>
       </div>
     ) : (
-      <p>Loading contact...</p>
+      <p>Loading...</p>
     )}
   </div>
 </section>
@@ -75,39 +119,44 @@ function Aboutus() {
 {/* our imparct */}
 
 <div className='container test'>
+  {impact ? (
   <div className='row custom-flex'>
     <div className='col-lg-6 col-md-6 image-block'>
-      <img src={aboutlogo2} alt='' id='aboutimg1' className='rounded' />
+      <img src={impact?.image} alt='' id='aboutimg1' className='rounded' />
     </div>
     <div className='col-lg-6 col-md-6 py-5 mt-3 text-block'>
       <div className='heading2'>
         <h3>Our Impact</h3>
-        <p>
-          Living far from India can be isolating, but you don’t have to go through it alone.
-          Here, you'll find a caring sisterhood that understands your journey and supports your dreams.
-          Whether you're seeking friendship, advice, or simply a place to belong, you’re welcome here.
+        <p>{impact.description}
         </p>
       </div>
     </div>
   </div>
+   ) : (
+      <p>Loading...</p>
+    )}
 </div>
 
 
 {/* Why Join us */}
        <div className='container test'>
+        {whyjoin ? (
         <div className='row'>
             <div className='col-lg-6 col-md-6 py-5 mt-5'>
                   <div className='heading3'>
                         <h3>Why Join us?</h3>
-                        <p>“Incredible work by the team — you absolutely nailed it! I thoroughly enjoyed every moment, from meeting inspiring new connections to the beautiful venue, the brilliant format, and that game-changing LinkedIn tip. A fantastic way to kickstart the day you should be so proud.”</p>
+                        <p>“{whyjoin.description}”</p>
                        
                     </div>
                
             </div>
                 <div className='col-lg-6 col-md-6 '>
-                 <img src= {aboutlogo3} alt='' className='rounded' id='aboutimg1'/>
+                 <img src= {whyjoin?.image} alt='' className='rounded' id='aboutimg1'/>
             </div>
         </div>
+        ) : (
+      <p>Loading...</p>
+    )}
      </div>
 </>
   )

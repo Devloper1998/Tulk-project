@@ -1,6 +1,7 @@
 // src\Components\Businesses\Business.jsx
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Slider from "react-slick";
+
 import Logo from '../../Assets/Events/1.jpg';
 import Logo2 from '../../Assets/Events/2.jpg';
 import Logo3 from '../../Assets/Events/3.jpg';
@@ -9,10 +10,37 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Business.css';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import baseurl from '../../baseUrl';
 
 
 function Business() {
-  const [activeIndex, setActiveIndex] = useState(0);
+
+   const [business, setBusiness] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [activeIndex, setActiveIndex] = useState(0);
+  
+    useEffect(() => {
+      const formData = new FormData();
+      formData.append('action', 'Display');
+  
+      axios.post(`${baseurl}/saveFeatureBusiness.php`, formData)
+        .then(response => {
+          if (response.data?.data?.length > 0) {
+            console.log(response.data);
+            const fetchedData = response.data.data.map(item => ({
+              ...item,
+              main_image: `${baseurl}/${item.main_image}`,
+            }));
+            setBusiness(fetchedData);
+          }
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching data!', error);
+          setLoading(false);
+        });
+    }, []);
 
   const settings = {
     dots: false, 
@@ -40,12 +68,12 @@ function Business() {
     ]
   };
 
-  const events = [
-    { img: Logo, title: "Women on Top the Evening Edition" },
-    { img: Logo2, title: "Women on Top the Evening Edition" },
-    { img: Logo3, title: "Women on Top the Evening Edition" },
-    { img: Logo4, title: "Women on Top the Evening Edition" }
-  ];
+  // const events = [
+  //   { img: Logo, title: "Women on Top the Evening Edition" },
+  //   { img: Logo2, title: "Women on Top the Evening Edition" },
+  //   { img: Logo3, title: "Women on Top the Evening Edition" },
+  //   { img: Logo4, title: "Women on Top the Evening Edition" }
+  // ];
 
   return (
     <div className='container mt-5 '>
@@ -55,25 +83,27 @@ function Business() {
       </div>
 
       <Slider {...settings}>
-        {events.map((event, index) => (
+        {business.map((businesses, index) => (
           <div key={index} className="p-2">
             <NavLink
             to="/businessDetail"
-            state={{ event }}
+            state={{ businesses }}
             className="text-decoration-none"
             >
           <div className="card h-100 border-0">
             
           <div className="position-relative">
-          <img src= {event.img} className="card-img-top" alt="Business 1" />
+          <img src= {businesses.main_image} className="card-img-top" alt="Business 1" />
           <span className="featured-badge">FEATURED</span>
           <div className="favorite-icon"><i className="bi bi-heart" /></div>
           </div>
           <div className="card-body">
-          <h5 className="card-title">The Aesthetics Club</h5>
-          <p className="text-muted small">15 Comely Bank Road, Stockbridge, Edinburgh</p>
+          <h5 className="card-title">{businesses.title}</h5>
+          <p className="text-muted small">{businesses.description.length > 100
+          ? `${businesses.description.substring(0, 40)}`
+          : businesses.description}</p>
           <div className="rating mb-1">0.0 <span className="text-warning">★★★★★</span> <span className="text-muted small">0 reviews</span></div>
-          <span className="discount-tag">20% OFF FIRST TREATMENT!</span>
+          {/* <span className="discount-tag">20% OFF FIRST TREATMENT!</span> */}
           </div>
           
           </div>
@@ -85,7 +115,7 @@ function Business() {
 
       {/* Custom numbered dots */}
       <div className="custom-dot text-center mt-3">
-        {events.map((_, index) => (
+        {business.map((_, index) => (
           <button
             key={index}
             className={`dot-botn mx-1 ${index === activeIndex ? 'active' : ''}`}
