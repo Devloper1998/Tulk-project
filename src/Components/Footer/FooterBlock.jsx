@@ -105,12 +105,12 @@ useEffect(() => {
           <h4>Quick Links</h4>
           <ul>
             <li><i className="bi bi-chevron-right" /> <Link to="/">Home</Link></li>
-            <li><i className="bi bi-chevron-right" /> <Link to="/">About us</Link></li>
-            <li><i className="bi bi-chevron-right" /> <Link to="/">Upcomming Events</Link></li>
-            <li><i className="bi bi-chevron-right" /> <Link to="/">Stories</Link></li>
-              <li><i className="bi bi-chevron-right" /> <Link to="/">Webinars</Link></li>
-            <li><i className="bi bi-chevron-right" /> <Link to="/">Featured Post</Link></li>
-            <li><i className="bi bi-chevron-right" /> <Link to="/">Contact us</Link></li>
+            <li><i className="bi bi-chevron-right" /> <Link to="/about">About us</Link></li>
+            <li><i className="bi bi-chevron-right" /> <Link to="/upevents">Upcomming Events</Link></li>
+            <li><i className="bi bi-chevron-right" /> <Link to="/stories">Stories</Link></li>
+              <li><i className="bi bi-chevron-right" /> <Link to="webinars">Webinars</Link></li>
+            <li><i className="bi bi-chevron-right" /> <Link to="/futureBussines">Featured Post</Link></li>
+            <li><i className="bi bi-chevron-right" /> <Link to="/contact">Contact us</Link></li>
           </ul>
         </div>
         {/* <div className="col-lg-3 col-md-3 footer-links py-5">
