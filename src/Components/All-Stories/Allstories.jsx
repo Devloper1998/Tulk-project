@@ -46,7 +46,7 @@ function Allstories() {
             <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
               <NavLink
                 className="text-decoration-none"
-                to="/stories-details"
+                to={`/stories-details/${item.id}`}
                 state={{
                   image: item.main_image,
                   title: item.title,

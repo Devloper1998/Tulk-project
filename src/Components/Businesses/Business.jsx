@@ -86,7 +86,7 @@ function Business() {
         {business.map((businesses, index) => (
           <div key={index} className="p-2">
             <NavLink
-            to="/businessDetail"
+            to={`/businessDetail/${businesses.id}`}
             state={{ businesses }}
             className="text-decoration-none"
             >

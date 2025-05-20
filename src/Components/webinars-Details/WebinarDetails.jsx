@@ -1,7 +1,10 @@
 // src\Components\webinars-Details\WebinarDetails.jsx
-import React from 'react'
+import React,{useState,useEffect}from 'react'
 import { useLocation } from 'react-router-dom';
 import './webnaiers.css'
+import axios from 'axios';
+import baseurl from '../../baseUrl';
+
 
 function WebinarDetails() {
         const location = useLocation();

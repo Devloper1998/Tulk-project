@@ -49,7 +49,7 @@ const [events, setEvents] = useState([]);
         {events.map((item, index) => (
           <div key={index} className="col-lg-3 col-md-6 mb-4">
             <NavLink
-              to="/eventDetail"
+              to={`/eventDetail/${item.id}`}
               state={{ event: item }}
               className="text-decoration-none text-dark"
             >
@@ -81,7 +81,7 @@ const [events, setEvents] = useState([]);
         {events.map((event, index) => (
           <div key={index} className="scroll-card me-3">
             <NavLink
-              to="/eventDetail"
+              to={`/eventDetail/${event.id}`}
               state={{ event }}
               className="text-decoration-none text-dark"
             >

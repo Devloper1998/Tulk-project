@@ -56,7 +56,7 @@ function Allevents() {
             {currentEvents.map((item, index) => (
               <div key={index} className="col-lg-3 col-md-6 mb-4">
                 <NavLink
-                  to="/eventDetail"
+                  to={`/eventDetail/${item.id}`}
                   state={{ event: item }}
                   className="text-decoration-none text-dark"
                 >
@@ -87,7 +87,7 @@ function Allevents() {
             {currentEvents.map((item, index) => (
               <div key={index} className="col-12 mb-4">
                 <NavLink
-                  to="/eventDetail"
+                  to={`/eventDetail/${item.id}`}
                   state={{ event: item }}
                   className="text-decoration-none text-dark"
                 >

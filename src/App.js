@@ -1,8 +1,6 @@
 // src\App.js
 import './App.css';
-import React, { useState, useEffect } from 'react';
-
-
+import React,{useState,useEffect} from 'react';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import Home from './Pages/HomeScreen/Home';
 import About from './Pages/Aboutus/About';
@@ -59,12 +57,12 @@ function App() {
           <Route path='/futureBussines' element= {<FutureBussines/>} />
           <Route path='/fullstories' element= {<OtherStories/>} />
           <Route path="/stories-details/:id" element={<StoriesDetails />} />
-          <Route path='/eventDetail' element= {<EventDetail/>} />
+          <Route path='/eventDetail/:id' element= {<EventDetail/>} />
           <Route path='/allevents' element= {<Allevents/>} />
-          <Route path='/webinar' element= {<WebinarDetails/>} />
+          <Route path='/webinar/:id' element= {<WebinarDetails/>} />
           <Route path='/allstories' element= {<Allstories/>} />
           <Route path='/allwebnaiers' element= {<Allwebnaiers/>} />
-          <Route path='/businessDetail' element= {<BusinessDetails/>} />
+          <Route path='/businessDetail/:id' element= {<BusinessDetails/>} />
           <Route path='/contact' element= {<Contact/>} />
         
       </Routes>

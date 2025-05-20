@@ -46,7 +46,7 @@ const [webinar, setWebinar] = useState([]);
         {webinar.map((webinar, index) => (
           <div key={index} className="col-md-3 mb-4">
             <NavLink
-              to="/webinar"
+              to={`/webinar/${webinar.id}`}
               state={{ webinar }}
               className="text-decoration-none text-dark"
             >

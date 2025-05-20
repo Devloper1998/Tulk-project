@@ -145,7 +145,7 @@ useEffect(() => {
 <div class="container">
 <div class="row">
 <div class="col-sm-12">
-<p>Copyright © Design By Spondias India - 2025.</p>
+<p>Copyright © Design By  TLUK - 2025.</p>
 </div>
 <div class="col-sm-6"></div>
 </div>

@@ -1,34 +1,62 @@
 // src\Components\Business-Details\BusinessDetails.jsx
 
-import { useLocation } from 'react-router-dom';
+import { useParams,useLocation } from 'react-router-dom';
 import './Business.css'
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from 'axios';
+import baseurl from '../../baseUrl';
 
 
 function BusinessDetails() {
     const [selected, setSelected] = useState("surf");
      const location = useLocation();
+     const { id } = useParams();
   const { event } = location.state || {};
 
-    if (!event) return <p>No Event Data</p>;
+   
+  const [business, setBusiness] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+  const formData = new FormData();
+  formData.append('action', 'Displays');
+  formData.append('id', id);
+
+  axios.post(`${baseurl}/saveFeatureBusiness.php`, formData)
+    .then(response => {
+      if (response.data && response.data.data && response.data.data.length > 0) {
+        const fetchedStory = response.data.data[0];
+        console.log(fetchedStory);
+        fetchedStory.profile_image = `${baseurl}/${fetchedStory.profile_image}`;
+        fetchedStory.main_image = `${baseurl}/${fetchedStory.main_image}`;
+        fetchedStory.story_image = `${baseurl}/${fetchedStory.story_image}`;
+        setBusiness(fetchedStory);
+      } else {
+        setBusiness(null);
+      }
+      setLoading(false);
+    })
+    .catch(error => {
+      console.error("There was an error fetching the data!", error);
+      setLoading(false);
+    });
+}, [id]);
+
+    if (!business) return <p>No Event Data</p>;
 
   return (
     <div className='container py-5 mt-5'>
         <div className='container'>
             <div className='row'>
                <div className='col-md-6 col-lg-6' id='imghead'>
-                    <img src= {event.img} alt='test' className='rounded' />
+                    <img src= {business.main_image} alt='test' className='rounded' />
                </div>
                <div className='col-md-6 col-lg-6' id='titlehead'>
-                <h2>{event.title}</h2>
+                <h2>{business.title}</h2>
                  <div className="rating mb-1">0.0 <span className="text-warning">★★★★★</span> <span className="text-muted small">0 reviews</span></div>
-                 <p>Based in Ratho, 25 mins from the centre of Edinburgh, Lost Shore is set within extensive grounds with luxury accommodation, waterfront bar, café and restaurant, surf schools, surf shop, The Surfskate Academy and wellness treatments.</p>
-                 <p>Based in Ratho, 25 mins from the centre of Edinburgh, Lost Shore is set within extensive grounds with luxury accommodation, waterfront bar, café and restaurant, surf schools, surf shop, The Surfskate Academy and wellness treatments.</p>
-                 <p>Based in Ratho, 25 mins from the centre of Edinburgh, Lost Shore is set within extensive grounds with luxury accommodation, waterfront bar, café and restaurant, surf schools, surf shop, The Surfskate Academy and wellness treatments.</p>
-                 <p>Based in Ratho, 25 mins from the centre of Edinburgh, Lost Shore is set within extensive grounds with luxury accommodation, waterfront bar, café and restaurant, surf schools, surf shop, The Surfskate Academy and wellness treatments.</p>
-                 <p>Based in Ratho, 25 mins from the centre of Edinburgh, Lost Shore is set within extensive grounds with luxury accommodation, waterfront bar, café and restaurant, surf schools, surf shop, The Surfskate Academy and wellness treatments.</p>
+                 <p>{business.description}</p>
                   <div className="discount-container">
-      <div
+      {/* <div
         className={`cardss ${selected === "surf" ? "active" : ""}`}
         onClick={() => setSelected("surf")}
       >
@@ -43,9 +71,9 @@ function BusinessDetails() {
             uses per person)
           </p>
         </div>
-      </div>
+      </div> */}
 
-      <div
+      {/* <div
         className={`cardss ${selected === "accommodation" ? "active" : ""}`}
         onClick={() => setSelected("accommodation")}
       >
@@ -60,9 +88,9 @@ function BusinessDetails() {
             accommodation must be booked via email info@lostshore.com
           </p>
         </div>
-      </div>
+      </div> */}
 
-      <button className="submit-btnss">Get this discount</button>
+      {/* <button className="submit-btnss">Get this discount</button> */}
     </div>
                </div>
             </div>
