@@ -162,13 +162,19 @@
     opacity: 1;
   }
 }
+.fixed-top {
+  border-bottom: 2px solid green;
+}
 .navbar-toggler {
   padding:  30px!important;
   border: 1px solid #fff;
   background-color: #000;
   border-radius: 0.25rem;
 }
-
+.logocontainer img{
+  width: 224px;
+  margin-left: -14px;
+}
 /* Hover Effect */
 .bb_button:hover {
   background-color: #007bff;

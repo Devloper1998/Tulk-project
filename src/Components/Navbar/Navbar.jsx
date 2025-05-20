@@ -57,7 +57,7 @@ const Navbar = () => {
             <img
               src={logos.header_logo}
               alt="Logo"
-              style={{ width: '90px', marginBottom: '-40px', marginTop: '-34px' }}
+              
             />
           ) : (
             <Link className="navbar-brand fw-bold" to="/">TLUK</Link>

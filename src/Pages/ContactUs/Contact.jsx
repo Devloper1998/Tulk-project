@@ -1,7 +1,10 @@
+// src\Pages\ContactUs\Contact.jsx
 import './contact.css';
 import axios from 'axios';
 import baseurl from '../../baseUrl';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -21,7 +24,25 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
+    // Basic validations
+    if (!formData.username || !formData.useremail || !formData.phone || !formData.message) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(formData.useremail)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(formData.phone)) {
+      toast.error("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     const newFormData = new FormData();
     newFormData.append('username', formData.username);
     newFormData.append('useremail', formData.useremail);
@@ -31,8 +52,7 @@ function Contact() {
 
     axios.post(`${baseurl}/saveContact.php`, newFormData)
       .then(response => {
-        console.log('Form submitted successfully:', response.data);
-        alert('Thank you for contacting us!');
+        toast.success("Thank you! Your enquiry has been received.");
         setFormData({
           username: '',
           useremail: '',
@@ -41,8 +61,8 @@ function Contact() {
         });
       })
       .catch(error => {
-        console.error('There was an error submitting the form!', error);
-        alert('Something went wrong. Please try again later.');
+        console.error('Error:', error);
+        toast.error("Something went wrong. Please try again later.");
       });
   };
 
@@ -66,7 +86,7 @@ function Contact() {
                       placeholder="Your Name"
                       value={formData.username}
                       onChange={handleChange}
-                      required
+                      
                     />
                   </div>
 
@@ -79,7 +99,7 @@ function Contact() {
                       placeholder="Your Email"
                       value={formData.useremail}
                       onChange={handleChange}
-                      required
+                      
                     />
                   </div>
 
@@ -92,7 +112,7 @@ function Contact() {
                       placeholder="Your Phone Number"
                       value={formData.phone}
                       onChange={handleChange}
-                      required
+                      
                     />
                   </div>
 
@@ -105,7 +125,7 @@ function Contact() {
                       placeholder="Type your message here..."
                       value={formData.message}
                       onChange={handleChange}
-                      required
+                      
                     ></textarea>
                   </div>
 
@@ -118,6 +138,9 @@ function Contact() {
 
         </div>
       </div>
+
+      {/* Toast Container */}
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+// src\Components\Slider\Slider.jsx
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';

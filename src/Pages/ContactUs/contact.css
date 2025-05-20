@@ -31,3 +31,11 @@
 .btnbig:active {
   transform: translateY(0);
 }
+
+
+@media (max-width: 768px) {
+ #headingContain h1{
+  font-family: 'myfont';
+  font-size: 40px;
+}
+}
