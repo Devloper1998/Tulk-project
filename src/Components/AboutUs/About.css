@@ -5,11 +5,25 @@
     font-weight: bold;
     font-style: normal;
 }
-@font-face {
+/* @font-face {
     font-family: 'merifont';
     src: url('../../Assets/Fonts/Helvetica.ttf') format('opentype');
  
+} */
+
+/* Body Font */
+@font-face {
+    font-family: 'robotofont';
+    src: url('../../Assets/Fonts/Roboto-Regular.ttf') format('opentype');
+ 
 }
+
+
+body{
+  font-family: 'robotofont'
+}
+
+/* Body Font */
 #aboutimg {
     max-width: 100%;
     height: auto;

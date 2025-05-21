@@ -1,5 +1,6 @@
+// src\Components\LatestStories\LatestStories.jsx
 import React, { useEffect, useState } from 'react';
-import { NavLink ,Link} from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Lateststories.css';
 import axios from 'axios';
 import baseurl from '../../baseUrl';
@@ -38,9 +39,10 @@ function Allstories() {
         </Link>
       </div>
 
-      <div className="row g-3">
-        {stories.map((item, index) => (
-          <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+      {/* Scrollable container for small screens */}
+      <div className="story-scroll-wrapper">
+        {stories.slice(0, 3).map((item, index) => (
+          <div className="story-card-wrapper" key={index}>
             <NavLink
               className="text-decoration-none"
               to={`/stories-details/${item.id}`}
@@ -57,7 +59,7 @@ function Allstories() {
                 <span className="featured-badge">FEATURED</span>
                 <img src={item.main_image} className="story-image" alt="story" />
                 <div className="story-content">
-                  <div className="story-title text-primary">{item.title}</div>
+                  <div className="story-title" id='storititle'>{item.title}</div>
                   <div className="story-meta">{item.designation}</div>
                   <div className="author-row mt-2">
                     <img src={item.profile_image} className="author-img" alt="author" />

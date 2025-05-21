@@ -2,6 +2,7 @@
 import './App.css';
 import React,{useState,useEffect} from 'react';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
+
 import Home from './Pages/HomeScreen/Home';
 import About from './Pages/Aboutus/About';
 import Stories from './Pages/Stories/Stories';
@@ -47,6 +48,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
        <ScrollToTop />
+      
       <Navbar/>
       <Routes>
           <Route path='/' element= {<Home/>} />

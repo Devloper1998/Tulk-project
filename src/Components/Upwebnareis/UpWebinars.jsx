@@ -1,3 +1,4 @@
+// src\Components\Upwebnareis\UpWebinars.jsx
 import React, { useState, useEffect } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -63,7 +64,7 @@ function UpWebinars() {
 
   return (
     <div className='container mt-5'>
-      <div className="d-flex justify-content-between align-items-center mb-2" id='head'>
+      <div className="d-flex justify-content-between align-items-center mb-2" id='subheaders'>
         <h2 className="section-title">Upcoming Webinars</h2>
         <NavLink to="allwebnaiers" className="text-danger text-decoration-none fw-medium subhead">All Webinars →</NavLink>
       </div>
@@ -75,19 +76,19 @@ function UpWebinars() {
       {webinar.length > 0 && (
         <Slider {...settings}>
           {webinar.map((webinarItem, index) => (
-            <div key={index} className="p-2">
+            <div key={index} className="p-3">
               <NavLink
                 to={`/webinar/${webinarItem.id}`}
                 state={{ webinar: webinarItem }}
                 className="text-decoration-none text-dark"
               >
-                <div className="card h-100 border-0">
+                <div className="story-card position-relative">
                   <div className="image-wrapper">
                     <img src={webinarItem.main_image} className="card-img-top" alt="Event" />
                   </div>
-                  <div className="card-body">
+                  <div className="card-bodys">
                     <h5 className="card-title fw-bold">{webinarItem.event_name}</h5>
-                    <p className="text-danger mb-1">{webinarItem.date}, {webinarItem.start_time} - {webinarItem.end_time}</p>
+                    <span className="text-danger mb-1">{webinarItem.date}, {webinarItem.start_time} - {webinarItem.end_time}</span>
                     <p className="mb-1">
                       {webinarItem.description1.length > 100
                         ? `${webinarItem.description1.substring(0, 40)}...`

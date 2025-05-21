@@ -1,11 +1,6 @@
 // src\Components\Businesses\Business.jsx
 import React, { useState,useEffect } from 'react';
 import Slider from "react-slick";
-
-import Logo from '../../Assets/Events/1.jpg';
-import Logo2 from '../../Assets/Events/2.jpg';
-import Logo3 from '../../Assets/Events/3.jpg';
-import Logo4 from '../../Assets/Events/Contentful_banner_size__6_.webp';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Business.css';
@@ -47,7 +42,7 @@ function Business() {
     arrows: false, 
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -68,15 +63,9 @@ function Business() {
     ]
   };
 
-  // const events = [
-  //   { img: Logo, title: "Women on Top the Evening Edition" },
-  //   { img: Logo2, title: "Women on Top the Evening Edition" },
-  //   { img: Logo3, title: "Women on Top the Evening Edition" },
-  //   { img: Logo4, title: "Women on Top the Evening Edition" }
-  // ];
-
   return (
-    <div className='container mt-5 '>
+    <>
+     <div className='container mt-5 '>
       <div className="d-flex justify-content-between align-items-center mb-2" id='head'>
         <h2 className="section-title">Featured Businesses</h2>
         
@@ -84,29 +73,29 @@ function Business() {
 
       <Slider {...settings}>
         {business.map((businesses, index) => (
-          <div key={index} className="p-2">
+          <div key={index} className="p-3">
             <NavLink
             to={`/businessDetail/${businesses.id}`}
             state={{ businesses }}
             className="text-decoration-none"
             >
-          <div className="card h-100 border-0">
-            
-          <div className="position-relative">
-          <img src= {businesses.main_image} className="card-img-top" alt="Business 1" />
-          <span className="featured-badge">FEATURED</span>
-          <div className="favorite-icon"><i className="bi bi-heart" /></div>
-          </div>
-          <div className="card-body">
-          <h5 className="card-title">{businesses.title}</h5>
-          <p className="text-muted small">{businesses.description.length > 100
+          
+
+              <div className="story-card position-relative">
+                  <div className="image-wrapper">
+                    <img src={businesses.main_image} className="card-img-top" alt="Event" />
+                  </div>
+                  <div className="cardData">
+                    <h5 className="card-title fw-bold">{businesses.event_name}</h5>
+                    <span className="text-danger mb-1">{businesses.date}, {businesses.start_time} - {businesses.end_time}</span>
+                      <p className="text-muted small">{businesses.description.length > 100
           ? `${businesses.description.substring(0, 40)}`
           : businesses.description}</p>
-          <div className="rating mb-1">0.0 <span className="text-warning">★★★★★</span> <span className="text-muted small">0 reviews</span></div>
-          {/* <span className="discount-tag">20% OFF FIRST TREATMENT!</span> */}
-          </div>
-          
-          </div>
+                         <div className="rating mb-1">0.0 <span className="text-warning">★★★★★</span> <span className="text-muted small">0 reviews</span></div>
+          <span className="discount-tag">20% OFF FIRST TREATMENT!</span>
+                    
+                  </div>
+                </div>
 
 </NavLink>
           </div>
@@ -126,6 +115,11 @@ function Business() {
         ))}
       </div>
     </div>
+
+
+    
+    </>
+   
   );
 }
 

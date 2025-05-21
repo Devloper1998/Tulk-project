@@ -33,6 +33,7 @@ export default function Stories() {
       }, []);
 
   return (
+<>
      <section className='py-5 mt-5'>
         <div className='container'>
             <div className='row'>
@@ -49,5 +50,117 @@ export default function Stories() {
             </div>
         </div>
 </section>
+
+
+{/* Other Cards */}
+
+
+<div className='container'>
+  
+  <div className="d-flex justify-content-between align-items-center mb-2 py-4" id="headnew">
+        <h2 className="section-title">All Stories</h2>
+       
+      </div>
+  <div className='row'>
+    <div className='col-lg-4 col-md-4'>
+  <div className="story-card position-relative">
+                <span className="featured-badge">FEATURED</span>
+                <img src={storiimg} className="story-image" alt="story" />
+                <div className="story-content">
+                  <div className="story-title" id='storititle'>Mnais</div>
+                  <div className="story-meta">sasasa</div>
+                  <div className="author-row mt-2">
+                    <img src= {storiimg} className="author-img" alt="author" />
+                    <span>Manikanta</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+
+     
+
+    <div className='col-lg-4 col-md-4'>
+        <div className="story-card position-relative">
+                <span className="featured-badge">FEATURED</span>
+                <img src={storiimg} className="story-image" alt="story" />
+                <div className="story-content">
+                  <div className="story-title" id='storititle'>Mnais</div>
+                  <div className="story-meta">sasasa</div>
+                  <div className="author-row mt-2">
+                    <img src= {storiimg} className="author-img" alt="author" />
+                    <span>Manikanta</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+    <div className='col-lg-4 col-md-4'>
+       <div className="story-card position-relative">
+                <span className="featured-badge">FEATURED</span>
+                <img src={storiimg} className="story-image" alt="story" />
+                <div className="story-content">
+                  <div className="story-title" id='storititle'>Mnais</div>
+                  <div className="story-meta">sasasa</div>
+                  <div className="author-row mt-2">
+                    <img src= {storiimg} className="author-img" alt="author" />
+                    <span>Manikanta</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+    <div className='col-lg-4 col-md-4 mb-5 py-5' >
+       <div className="story-card position-relative">
+                <span className="featured-badge">FEATURED</span>
+                <img src={storiimg} className="story-image" alt="story" />
+                <div className="story-content">
+                  <div className="story-title" id='storititle'>Mnais</div>
+                  <div className="story-meta">sasasa</div>
+                  <div className="author-row mt-2">
+                    <img src= {storiimg} className="author-img" alt="author" />
+                    <span>Manikanta</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+       <div className='col-lg-4 col-md-4 mb-5 py-5' >
+       <div className="story-card position-relative">
+                <span className="featured-badge">FEATURED</span>
+                <img src={storiimg} className="story-image" alt="story" />
+                <div className="story-content">
+                  <div className="story-title" id='storititle'>Mnais</div>
+                  <div className="story-meta">sasasa</div>
+                  <div className="author-row mt-2">
+                    <img src= {storiimg} className="author-img" alt="author" />
+                    <span>Manikanta</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+       <div className='col-lg-4 col-md-4 mb-5 py-5' >
+       <div className="story-card position-relative">
+                <span className="featured-badge">FEATURED</span>
+                <img src={storiimg} className="story-image" alt="story" />
+                <div className="story-content">
+                  <div className="story-title" id='storititle'>Mnais</div>
+                  <div className="story-meta">sasasa</div>
+                  <div className="author-row mt-2">
+                    <img src= {storiimg} className="author-img" alt="author" />
+                    <span>Manikanta</span>
+                  </div>
+                </div>
+              </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+          
+</>
   )
 }

@@ -2,7 +2,7 @@
 import './contact.css';
 import axios from 'axios';
 import baseurl from '../../baseUrl';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,6 +13,12 @@ function Contact() {
     phone: '',
     message: ''
   });
+
+  // Refs for focusing fields on error
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const messageRef = useRef(null);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -25,24 +31,46 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validations
-    if (!formData.username || !formData.useremail || !formData.phone || !formData.message) {
-      toast.error("Please fill in all fields.");
+    // Step-by-step validation
+    if (!formData.username.trim()) {
+      toast.error("Name is required.");
+      nameRef.current.focus();
+      return;
+    }
+
+    if (!formData.useremail.trim()) {
+      toast.error("Email is required.");
+      emailRef.current.focus();
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(formData.useremail)) {
       toast.error("Please enter a valid email address.");
+      emailRef.current.focus();
       return;
     }
 
-    const phonePattern = /^[0-9]{10}$/;
-    if (!phonePattern.test(formData.phone)) {
-      toast.error("Please enter a valid 10-digit phone number.");
+  if (!formData.phone.trim()) {
+  toast.error("Phone number is required.");
+  phoneRef.current.focus();
+  return;
+}
+
+if (!/^[0-9]{10}$/.test(formData.phone)) {
+  toast.error("Please enter a valid 10-digit phone number.");
+  phoneRef.current.focus();
+  return;
+}
+
+
+    if (!formData.message.trim()) {
+      toast.error("Message is required.");
+      messageRef.current.focus();
       return;
     }
 
+    // If all valid, submit
     const newFormData = new FormData();
     newFormData.append('username', formData.username);
     newFormData.append('useremail', formData.useremail);
@@ -86,7 +114,7 @@ function Contact() {
                       placeholder="Your Name"
                       value={formData.username}
                       onChange={handleChange}
-                      
+                      ref={nameRef}
                     />
                   </div>
 
@@ -99,7 +127,7 @@ function Contact() {
                       placeholder="Your Email"
                       value={formData.useremail}
                       onChange={handleChange}
-                      
+                      ref={emailRef}
                     />
                   </div>
 
@@ -111,8 +139,12 @@ function Contact() {
                       id="phone"
                       placeholder="Your Phone Number"
                       value={formData.phone}
-                      onChange={handleChange}
-                      
+                      onChange={(e) => {
+                        // Allow only numbers
+                        const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                        setFormData(prev => ({ ...prev, phone: value }));
+                      }}
+                      ref={phoneRef}
                     />
                   </div>
 
@@ -125,7 +157,7 @@ function Contact() {
                       placeholder="Type your message here..."
                       value={formData.message}
                       onChange={handleChange}
-                      
+                      ref={messageRef}
                     ></textarea>
                   </div>
 

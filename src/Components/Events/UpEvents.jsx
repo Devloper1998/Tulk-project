@@ -35,7 +35,7 @@ const [events, setEvents] = useState([]);
   }, []);
 
   return (
-    <div className='container'>
+    <div className='container py-4'>
      <div className="d-flex justify-content-between align-items-center mb-3 w-100 flex-nowrap" id='head'>
         <h2 className="section-title">Upcoming Events</h2>
 
@@ -47,26 +47,26 @@ const [events, setEvents] = useState([]);
       {/* Desktop View */}
       <div className="row d-none d-md-flex">
         {events.map((item, index) => (
-          <div key={index} className="col-lg-3 col-md-6 mb-4">
+          <div key={index} className="col-lg-4 col-md-6 mb-4">
             <NavLink
               to={`/eventDetail/${item.id}`}
               state={{ event: item }}
               className="text-decoration-none text-dark"
             >
-              <div className="card h-100 border-0 event-card">
+              <div className="story-card position-relative">
                 <img
                   src={item.main_image}
-                  className="card-img-top rounded-top event-img"
+                  className="card-img-top event-img"
                   alt={`Event ${index + 1}`}
                 />
-                <div className="card-body">
-                  <h5 className="card-title fw-bold">{item.event_name}</h5>
-                  <p className="text-danger mb-1">{item.date}, {item.start_time} - {item.end_time}</p>
-                  <p className="mb-1">
+                <div className="story-content">
+                  <h3 className="card-title fw-bold mb-1 ">{item.event_name}</h3>
+                  <span className="text-danger mb-1"><i class="fa-solid fa-calendar-check"></i>  {item.date}, {item.start_time} - {item.end_time}</span>
+                  <span className="mb-1">
                       {item.description1.length > 100
                         ? `${item.description1.substring(0, 40)}`
                         : item.description1}
-                    </p>
+                    </span>
                   {/* <p className="text-muted">Tickets from £40.00</p> */}
                 </div>
               </div>

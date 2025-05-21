@@ -139,7 +139,7 @@ useEffect(() => {
 
 
 {/* Why Join us */}
-       <div className='container test'>
+       <div className='container  test'>
         {whyjoin ? (
         <div className='row'>
             <div className='col-lg-6 col-md-6 py-5 mt-5'>

@@ -5,6 +5,7 @@ import './Navbar.css';
 import axios from 'axios';
 import baseurl from '../../baseUrl';
 
+
 const Navbar = () => {
   const [logos, setLogos] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -49,7 +50,14 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <section id="bgback">
+    <>
+
+
+
+{/* navbar */}
+
+
+ <section id="bgback">
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" id="bg-back">
         <div className="container logocontainer">
           {/* Logo */}
@@ -132,6 +140,9 @@ const Navbar = () => {
         </div>
       </div>
     </section>
+    
+    </>
+   
   );
 };
 
